@@ -1,0 +1,56 @@
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.deps.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.runtimeconfig.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.csproj.AssemblyReference.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.AssemblyInfoInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.AssemblyInfo.cs
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.csproj.CoreCompileInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\refint\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.genruntimeconfig.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\ref\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.deps.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.runtimeconfig.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.csproj.AssemblyReference.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.AssemblyInfoInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.AssemblyInfo.cs
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.csproj.CoreCompileInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\refint\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.genruntimeconfig.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\ref\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.deps.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.runtimeconfig.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.csproj.AssemblyReference.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.AssemblyInfoInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.AssemblyInfo.cs
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.csproj.CoreCompileInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\refint\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.genruntimeconfig.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\ref\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.deps.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.runtimeconfig.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\bin\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.csproj.AssemblyReference.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.AssemblyInfoInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.AssemblyInfo.cs
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.csproj.CoreCompileInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\refint\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\MakeAWishDB.genruntimeconfig.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\MakeAWishDB\obj\Debug\net8.0\ref\MakeAWishDB.dll
