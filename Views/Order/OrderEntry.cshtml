@@ -1,0 +1,62 @@
+﻿@model PortalWWW.Models.OrderEntryViewModel
+
+@{
+    ViewData["Title"] = "Order a Cake";
+}
+
+<div class="parallax-container hero">
+
+    <div class="parallax">
+        <img src="~/img/2150996456.jpg" />
+    </div>
+</div>
+
+
+<h1 class="center blue-grey-text text-darken-4">
+    @Model.Header
+</h1>
+
+<div class="container">
+
+    <!-- ORDER STEPS -->
+    <div class="card-panel amber lighten-3">
+        <!--  <h5 class="blue-grey-text text-darken-4 center">
+            Order in four simple steps
+        </h5>-->
+
+        <div class="section">
+            @foreach (var step in Model.Steps)
+            {
+                <div class="row valign-wrapper">
+                    <div class="col s2 m1 center-align">
+                        <span class="btn-floating blue-grey darken-3">
+                            @step.StepNo
+                        </span>
+                    </div>
+                    <div class="col s10 m11">
+                        <h6 class="blue-grey-text text-darken-4">
+                            @step.Description
+                        </h6>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="section center">
+        <a asp-action="CatalogOrder"
+           asp-controller="Order"
+           class="btn-large blue-grey darken-3">
+            Order from catalogue
+        </a>
+
+        <a asp-action="QuoteRequest"
+           asp-controller="Order"
+           class="btn-large blue-grey darken-3"
+           style="margin-left: 20px;">
+            Custom cake request
+        </a>
+    </div>
+
+</div>

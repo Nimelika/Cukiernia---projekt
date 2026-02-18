@@ -1,0 +1,151 @@
+﻿@model PortalWWW.Models.CatalogOrderViewModel
+
+@{
+    ViewData["Title"] = "Order a Cake from Catalog";
+  //  HtmlHelperOptions.ClientValidationEnabled = false;
+}
+
+<div class="parallax-container hero">
+
+    <div class="parallax">
+        <img src="~/img/2151955838_2.jpg" />
+    </div>
+</div>
+
+<h1 class="center blue-grey-text text-darken-4">@ViewData["Title"]</h1>
+
+<div class="container">
+    <form asp-action="CreateCatalog" asp-controller="Order" method="post">
+        @Html.AntiForgeryToken()
+
+        <!-- CUSTOMER DETAILS -->
+        <div class="card-panel grey darken-3 dark-form">
+            <h5 class="amber-text text-lighten-4">Customer details</h5>
+
+            <div class="section row">
+                <div class="input-field col s12">
+                    <input asp-for="GuestName" />
+                    <label asp-for="GuestName">Full name</label>
+                    @Html.ValidationMessageFor(m => m.GuestName, "", new { @class = "red-text" })
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <input asp-for="GuestEmail" />
+                    <label asp-for="GuestEmail">Email</label>
+                    @Html.ValidationMessageFor(m => m.GuestEmail, "", new { @class = "red-text" })
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <input asp-for="GuestPhone" />
+                    <label asp-for="GuestPhone">Phone</label>
+                    @Html.ValidationMessageFor(m => m.GuestPhone, "", new { @class = "red-text" })
+                </div>
+            </div>
+        </div>
+
+        <!-- COLLECTION -->
+        <div class="card-panel amber lighten-3">
+            <h5 class="blue-grey-text text-darken-4">Collection details</h5>
+
+            <div class="section row">
+                <div class="input-field col s12 m6">
+                    <select asp-for="ShopId" asp-items="ViewBag.Shops"></select>
+                    <label>Pickup location</label>
+                    @Html.ValidationMessageFor(m => m.ShopId, "", new { @class = "red-text" })
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <input asp-for="CollectionDate"
+                           type="date"
+                           min="@DateTime.Today.AddDays(3).ToString("yyyy-MM-dd")" />
+                    <label asp-for="CollectionDate">Pickup date</label>
+                    <span class="helper-text">
+                        Orders require at least 3 days preparation time.
+                    </span>
+                    @Html.ValidationMessageFor(m => m.CollectionDate, "", new { @class = "red-text" })
+                </div>
+            </div>
+        </div>
+
+        <!-- CAKE -->
+        <div class="card-panel grey darken-3 dark-form">
+            <h5 class="amber-text text-lighten-4">Cake selection</h5>
+
+            <div class="section row">
+                <div class="input-field col s12 m6">
+                    <select asp-for="CelebrationCakeId" asp-items="ViewBag.Cakes"></select>
+                    <label>Cake</label>
+                    @Html.ValidationMessageFor(m => m.CelebrationCakeId, "", new { @class = "red-text" })
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <select asp-for="CelebrationCakeSizeId" asp-items="ViewBag.CakeSizes"></select>
+                    <label>Size</label>
+                    @Html.ValidationMessageFor(m => m.CelebrationCakeSizeId, "", new { @class = "red-text" })
+                </div>
+
+                <div class="input-field col s12 m4">
+                    <input asp-for="Quantity" type="number" min="1" />
+                    <label asp-for="Quantity">Quantity</label>
+                    @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "red-text" })
+                </div>
+            </div>
+        </div>
+
+        <!-- PERSONALIZATION (OPTIONAL) -->
+        <div class="card-panel amber lighten-3">
+            <h5 class="blue-grey-text text-darken-4">Personalization</h5>
+
+            <div class="section row">
+                <div class="input-field col s12">
+                    <input asp-for="PersonalizedText" />
+                    <label asp-for="PersonalizedText">Text on cake</label>
+                    @Html.ValidationMessageFor(m => m.PersonalizedText, "", new { @class = "red-text" })
+                </div>
+
+                <div class="input-field col s12">
+                    <textarea asp-for="Notes" class="materialize-textarea"></textarea>
+                    <label asp-for="Notes">Additional notes</label>
+                    @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "red-text" })
+                </div>
+            </div>
+        </div>
+
+        <!-- CONSENTS -->
+        <div class="card-panel grey darken-3 dark-form">
+            <div class="section">
+
+                <p>
+                    <label>
+                        <input type="checkbox" asp-for="AcceptRodo" />
+                        <span>I agree to the privacy policy</span>
+                    </label>
+                    @Html.ValidationMessageFor(m => m.AcceptRodo, "", new { @class = "red-text" })
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" asp-for="AcceptTerms" />
+                        <span>I accept the terms and conditions</span>
+                    </label>
+                    @Html.ValidationMessageFor(m => m.AcceptTerms, "", new { @class = "red-text" })
+                </p>
+
+            </div>
+        </div>
+
+        <div class="center">
+            <button type="submit" class="btn-large blue-grey darken-3">
+                Submit order
+            </button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            M.FormSelect.init(document.querySelectorAll('select'));
+        });
+    </script>
+}

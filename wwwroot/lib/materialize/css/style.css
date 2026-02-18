@@ -1,0 +1,113 @@
+/* Custom Stylesheet */
+/* Overrides for Materialize */
+
+.icon-block {
+    padding: 0 15px;
+}
+
+    .icon-block .material-icons {
+        font-size: inherit;
+    }
+
+/* =========================
+   DARK FORM PANELS
+   ========================= */
+
+.dark-form,
+.dark-form label,
+.dark-form input,
+.dark-form textarea,
+.dark-form .select-dropdown,
+.dark-form .helper-text,
+.dark-form .caret {
+    color: #ffffff !important;
+}
+
+    .dark-form input,
+    .dark-form textarea {
+        border-bottom: 1px solid #ffffff !important;
+    }
+
+        .dark-form input:focus,
+        .dark-form textarea:focus {
+            border-bottom: 1px solid #ffca28 !important;
+            box-shadow: 0 1px 0 0 #ffca28 !important;
+        }
+
+    /* Dropdown items (opened select) */
+    .dark-form .dropdown-content li > span {
+        color: #000000 !important;
+    }
+
+/* =========================
+   SPACING FIXES
+   ========================= */
+
+
+/* Panel spacing */
+.card-panel {
+    padding-top: 30px;
+}
+
+/* Date picker icon */
+.dark-form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Helper text */
+.dark-form .helper-text {
+    color: rgba(255,255,255,0.75) !important;
+}
+/* Force dark date input UI */
+.dark-form input[type="date"] {
+    color-scheme: dark;
+}
+
+    /* Calendar icon */
+    .dark-form input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        opacity: 1;
+    }
+.select-field .select-dropdown {
+    font-size: 1rem;
+    padding-top: 6px;
+}
+
+.select-field label {
+    font-size: 1rem;
+    transform: translateY(6px);
+}
+/* Static labels for selects */
+.input-field select + label,
+.input-field .select-dropdown + label {
+    position: static;
+    transform: none;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    display: block;
+}
+/* Increase visual weight of number & date inputs */
+.input-field input[type="number"],
+.input-field input[type="date"] {
+    font-size: 1.1rem;
+}
+.parallax-container.hero {
+    height: 320px !important;
+}
+
+@media (max-width: 992px) {
+    .parallax-container.hero {
+        height: 270px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .parallax-container.hero {
+        height: 200px !important;
+    }
+}
+
+
+
+
+

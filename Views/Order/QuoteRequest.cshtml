@@ -1,0 +1,131 @@
+﻿@model PortalWWW.Models.QuoteRequestViewModel
+
+@{
+    ViewData["Title"] = "Fully Personalized Cake";
+}
+
+<div class="parallax-container hero">
+
+    <div class="parallax">
+        <img src="~/img/2150734934.jpg" />
+    </div>
+</div>
+
+<h1 class="center blue-grey-text text-darken-4">@ViewData["Title"]</h1>
+
+<div class="container">
+    <form asp-action="CreateQuoteRequest"
+          asp-controller="Order"
+          method="post"
+          enctype="multipart/form-data">
+
+        @Html.AntiForgeryToken()
+
+        <!-- CUSTOMER DETAILS -->
+        <div class="card-panel grey darken-3 dark-form">
+            <h5 class="amber-text text-lighten-4">Customer details</h5>
+
+            <div class="section row">
+                <div class="input-field col s12">
+                    <input asp-for="GuestName" />
+                    <label asp-for="GuestName">Full name</label>
+                    @Html.ValidationMessageFor(m => m.GuestName, "", new { @class = "red-text" })
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <input asp-for="GuestEmail" />
+                    <label asp-for="GuestEmail">Email</label>
+                    @Html.ValidationMessageFor(m => m.GuestEmail, "", new { @class = "red-text" })
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <input asp-for="Phone" />
+                    <label asp-for="Phone">Phone</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLLECTION -->
+        <div class="card-panel amber lighten-3">
+            <h5 class="blue-grey-text text-darken-4">Collection details</h5>
+
+            <div class="section row">
+                <div class="input-field col s12 m6">
+                    <select asp-for="ShopId" asp-items="ViewBag.Shops"></select>
+                    <label>Pickup location</label>
+                    @Html.ValidationMessageFor(m => m.ShopId, "", new { @class = "red-text" })
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <input asp-for="DesiredDeliveryDate"
+                           type="date"
+                           min="@DateTime.Today.AddDays(7).ToString("yyyy-MM-dd")" />
+
+                    <label asp-for="DesiredDeliveryDate">Desired delivery date</label>
+                    <span class="helper-text">
+                        We need at least 7 days to validate the request.
+                    </span>
+                    @Html.ValidationMessageFor(m => m.DesiredDeliveryDate, "", new { @class = "red-text" })
+                </div>
+            </div>
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="card-panel grey darken-3 dark-form">
+
+            <h5 class="amber-text text-lighten-4">Cake description</h5>
+
+            <div class="section row">
+                <div class="input-field col s12">
+                    <textarea asp-for="Description" class="materialize-textarea"></textarea>
+                    <label asp-for="Description">Describe your cake idea</label>
+                    @Html.ValidationMessageFor(m => m.Description, "", new { @class = "red-text" })
+                </div>
+
+                <div class="file-field input-field col s12">
+                    <div class="btn blue-grey darken-3">
+                        <span>Upload image</span>
+                        <input asp-for="UploadedImage" type="file" />
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONSENTS -->
+        <div class="card-panel amber lighten-3">
+            <p>
+                <label>
+                    <input type="checkbox" asp-for="AcceptRodo" />
+                    <span>I agree to the privacy policy</span>
+                </label>
+                @Html.ValidationMessageFor(m => m.AcceptRodo, "", new { @class = "red-text" })
+            </p>
+
+            <p>
+                <label>
+                    <input type="checkbox" asp-for="AcceptTerms" />
+                    <span>I accept the terms and conditions</span>
+                </label>
+                @Html.ValidationMessageFor(m => m.AcceptTerms, "", new { @class = "red-text" })
+            </p>
+        </div>
+
+        <div class="center">
+            <button type="submit" class="btn-large blue-grey darken-3">
+                Submit request
+            </button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            M.FormSelect.init(document.querySelectorAll('select'));
+        });
+    </script>
+}
+

@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PortalWWW</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/lib/materialize/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="~/lib/materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="~/lib/fontello/css/fontello.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Pacifico&family=Protest+Riot&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Estonia&family=Kaushan+Script&family=Michroma&family=Unica+One&display=swap" rel="stylesheet">
+    <!-- Contributions  -->
+    @*    <a href="https://www.freepik.com/free-photo/lovely-newborn-asian-baby-sleeping-furry-cloth_28788857.htm#query=baby&position=3&from_view=search&track=sph&uuid=acbeeffd-af67-4146-b448-71f37041a675">Image by studioredcup</a> on Freepik
+    <a href="https://www.freepik.com/free-ai-image/portrait-baby-with-big-eyes_72626417.htm#query=baby&position=40&from_view=search&track=sph&uuid=acbeeffd-af67-4146-b448-71f37041a675">Image By freepik</a>
+    <a href="https://www.freepik.com/free-photo/baby-crawling-with-green-diaper_7398251.htm#query=diaper&position=18&from_view=search&track=sph&uuid=d4c5fc12-e841-469f-b83c-e16717a0792c">Image by Racool_studio</a> on Freepik*@
+    @*    <a href="https://www.freepik.com/free-ai-image/close-up-new-born-baby-sleeping_94954940.htm#query=baby&position=41&from_view=search&track=sph&uuid=acbeeffd-af67-4146-b448-71f37041a675">Image By freepik</a>
+    <a href="https://www.freepik.com/free-photo/baby-teddy-bear-rear-view-with-design-space_16016880.htm#query=diaper&position=3&from_view=search&track=sph&uuid=d4c5fc12-e841-469f-b83c-e16717a0792c">Image by rawpixel.com</a> on Freepik
+    <a href="https://www.freepik.com/free-ai-image/close-up-new-born-baby-with-toys_94955030.htm#query=baby&position=43&from_view=search&track=sph&uuid=acbeeffd-af67-4146-b448-71f37041a675">Image By freepik</a>
+    *@
+</head>
+
+<body>
+
+    <header>
+        <nav class="nav-extended grey darken-3">
+
+            <div class="nav-wrapper" style="margin-bottom:35px; padding-top:30px;">
+
+
+                <a class="brand-logo center" style="font-family:'Imperial Script'; font-size: 90px; color:antiquewhite
+" @Html.ActionLink("Make a Wish", "Index", "Home") </a>
+                <a class="sidenav-trigger" href="#" data-target="mobile-list">
+                    <i class="material-icons blue-grey-text text-darken-4">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <!--overwriting default text colour does not work in nav, needed to be set to each <li> in <a> separately-->
+                    <li><a class="amber-text text-lighten-5" href="#"><i class="material-icons" href="#">search</i></a></li>
+                    <li><a class="amber-text text-lighten-5" href="#"><i class="material-icons" href="#">person</i></a></li>
+                    <li><a class="amber-text text-lighten-5" href="#"><i class="material-icons" href="#">shopping_cart</i></a></li>
+                </ul>
+            </div>
+            <div class="nav-wrapper">
+                <ul class="hide-on-med-and-down">
+                    <!--overwriting default text colour does not work in nav, needed to be set to each <li> in <a> separately-->
+                    <li>@Html.ActionLink("O NAS", "WhoWeAre", "Home")</li>
+                    @*<li><a href="#collection">PRODUKTY</a></li>*@
+                    <li>@Html.ActionLink("OFERTA", "Index", "Product")</li>
+                    <li>@Html.ActionLink("NASZ ZESPÓŁ", "OurTeam", "Home")</li>
+                    @* <li>@Html.ActionLink("DOŁĄCZ DO NAS","JobOffer","Home")</li>*@
+                    <li>@Html.ActionLink("NASZE SKLEPY", "OurShops", "Home")</li>
+                    <li>@Html.ActionLink("KONTAKT", "Contact", "Home")</li>
+
+                    <li>
+                        <a href="@Url.Action("OrderEntry", "Order")"
+                           class="waves-effect waves-light btn amber lighten-5 pulse grey-text text-darken-3">
+                            <i class="material-icons right">cake</i>
+                            ORDER A CAKE
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!--Sprawdzić czemu nie działa + dodać dropdown menu jak już będzie działać-->
+        <ul class="sidenav" id="mobile-list">
+            @*@<li><a href="#">WYSZUKIWANIE</a></li>*@
+            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("O NAS", "WhoWeAre", "Home")</a></li>
+            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("OFERTA", "Index", "Product")</a></li>
+            <li><a class="blue-grey-text text-darken-4">@Html.ActionLink("NASZ ZESPÓŁ", "OurTeam", "Home")</a></li>
+            @*<li><a class="blue-grey-text text-darken-4" href="#collection">PRODUKTY</a></li>*@
+            <li>@Html.ActionLink("PRODUKTY", "Index", "Product")</li>
+            @*<li><a class="blue-grey-text text-darken-4" @Html.ActionLink("DOŁĄCZ DO NAS","JobOffer","Home")</a></li>*@
+            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("NASZE SKLEPY", "OurShops", "Home")</a></li>
+            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("KONTAKT", "Contact", "Home")</a></li>
+            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("ORDER A CAKE", "OrderEntry", "Order")</a></li>
+
+
+        </ul>
+    </header>
+
+    <div>
+        <main>
+            @RenderBody()
+
+            <div class="container center center-align">
+                <h3 class="blue-grey-text text-darken-4">NAJCZĘŚCIEJ WYBIERANE</h3>
+                <div class="row">
+                    <div class="col s12 m6 l3">
+                        <div class="card large">
+                            <div class="card-image">
+                                <img src="" alt="Tu będzie zdjęcie" />
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Nazwa produktu</span>
+                                <p>cena</p>
+                                <a href="#" class="btn-floating amber darken-3 pulse"><i class="material-icons right">shopping_cart</i></a>
+                            </div>
+                            <div class="card-action">
+                                <a class="amber-text text-darken-3" href="#">SZCZEGÓŁY</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l3">
+                        <div class="card large">
+                            <div class="card-image">
+                                <img src="https://media-hosting.imagekit.io//b24d3e9501cb4085/3030%20(1).jpg?Expires=1835463429&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Qs59YlSFEJd3TNXuviZlnJi59Bob6gmFJCpJLCTonUNbRee1CWMk0K1rskZH-EPcokctaeMcYDgZKLbIj4b2NSrQGy52rKtWTfLx0IooFcQq7gQwy637VelycW3owiiNrPBrAeiBv8haBd0cySvMVBlopsadPJtIkbcQ1-Ndtld9AKGNRbiiD0Z4VDX0A001uTxfVc78DTr1tfAzKmf6xSUDe15m~YPajEMfSXiKCX00P3CvurftkgGbkTO-Lf~tZCc0bwHVbjskfP2KnCj7~2UXaw5GRQc3dfuQc2aqNgQk-ueRWtbkqmM7-Lu~X5Kdh8V-X0oMrDOfTAfD5kwBUw" alt="Tu będzie zdjęcie" />
+                                <a href="#" class="btn-floating teal lighten-1 pulse"><i class="material-icons right">shopping_cart</i></a>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Nazwa produktu</span>
+                                <p>cena</p>
+                                <a href="#" class="btn-floating amber darken-3 pulse"><i class="material-icons right">shopping_cart</i></a>
+                            </div>
+                            <div class="card-action">
+                                <a class="amber-text text-darken-3 href="#">SZCZEGÓŁY</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l3">
+                        <div class="card large">
+                            <div class="card-image">
+                                <img src="https://i.postimg.cc/rmQRwtm2/3236-1.jpg" alt="Tu będzie zdjęcie" />
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Nazwa produktu</span>
+                                <p>cena</p>
+                                <a href="#" class="btn-floating amber darken-3 pulse"><i class="material-icons right">shopping_cart</i></a>
+                            </div>
+                            <div class="card-action">
+                                <a class="amber-text text-darken-3" href="#">SZCZEGÓŁY</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l3">
+                        <div class="card large">
+                            <div class="card-image">
+                                <img src="https://i.postimg.cc/2SQ65Bc9/3030-1.jpg" alt="Tu będzie zdjęcie" />
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Tort Mascarpone</span>
+                                <p>od 190 PLN</p>
+                                <a href="#" class="btn-floating amber darken-3 pulse"><i class="material-icons right">shopping_cart</i></a>
+                            </div>
+
+                            <div class="card-action">
+                                <a class="amber-text text-darken-3" href="#">SZCZEGÓŁY</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container center center-align" style="margin-bottom:30px;">
+                    <h3 class="blue-grey-text text-darken-4">NASZE SPECJAŁY</h3>
+                    <div class="carousel">
+                        <a class="carousel-item " href="#!"><img src="https://ptys.pl/wp-content/uploads/2024/05/ptys_karta-duzej-rodziny-300x282.png "></a>
+                        <a class="carousel-item" href="#!"><img src="https://ptys.pl/wp-content/uploads/2024/05/ptys_karta-duzej-rodziny-300x282.png"></a>
+                        <a class="carousel-item" href="#!"><img src="https://ptys.pl/wp-content/uploads/2024/05/ptys_karta-duzej-rodziny-300x282.png"></a>
+                        <a class="carousel-item" href="#!"><img src="https://ptys.pl/wp-content/uploads/2024/05/ptys_karta-duzej-rodziny-300x282.png"></a>
+                        <a class="carousel-item" href="#!"><img src="https://ptys.pl/wp-content/uploads/2024/05/ptys_karta-duzej-rodziny-300x282.png"></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="page-footer grey darken-3">
+        <div class="container center-align">
+            <h3 class="amber-text text-lighten-5">NASZE PROFILE</h3>
+            <div class="row">
+
+                <div class="col s12 m6 l4">
+                    <h3><a class="amber-text text-lighten-5" href=" #"><i class="icon-facebook"></i></a></h3>
+                </div>
+                <div class="col s12 m6 l4">
+                    <h3><a class="amber-text text-lighten-5" href=" #"><i class="icon-instagram"></i></a></h3>
+                </div>
+                <div class="col s12 m6 l4">
+                    <h3><a class="amber-text text-lighten-5" href=" #"><i class="icon-youtube"></i></a></h3>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <section id="info">
+                    <div class="col s12 m6 l3">
+                        <h5 style="padding:15px">Siedziba Główna</h5>
+                        <nav class="grey darken-3" style="box-shadow:none">
+                            <div>
+                                <ul>
+                                    <li>32-500 Chrzanów ul. Miła 135</li>
+                                    <br />
+                                    <li>tel. 32-621-21-995</li>
+                                    <br />
+                                    <li>e-mail: cukiernia@makeawish.pl</li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col s12 m6 l3 ">
+                        <h5 style="padding:15px;">O nas</h5>
+                        <nav class="grey darken-3" style="box-shadow:none">
+                            <div>
+                                <ul>
+                                    <li>@Html.ActionLink("Kim jesteśmy", "WhoWeAre", "Home")</li>
+                                    <br />
+                                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                                    <br />
+                                    <li>@Html.ActionLink("Nasze Sklepy", "OurShops", "Home")</li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="col s12 m6 l3 ">
+                        <h5 style="padding:15px;">Polityki</h5>
+                        <nav class="grey darken-3" style="box-shadow:none">
+                            <div>
+                                <ul>
+                                    <li>@Html.ActionLink("Legal Notice", "LegalNotice", "Home")</li>
+                                    <br />
+                                    <li>@Html.ActionLink("Privacy Policy", "Privacy", "Home")</li>
+                                    <br />
+                                    <li>@Html.ActionLink("Cookies Policy", "CookiesPolicy", "Home")</li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </section>
+
+                <div class="col s12 m6 l3" style="padding:15px;">
+                    <img src="/img/karta-duzej-rodziny.png" alt="Honorujemy Kartę Dużej Rodziny" />
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright grey-darken-4">
+            <div class="container center-align">
+                &copy; 2026 All Set Up. All rights reserved.
+            </div>
+
+        </div>
+    </footer>
+    <!--  Scripts-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="~/lib/materialize/js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('.sidenav').sidenav();
+            $('.parallax').parallax();
+            $('.carousel').carousel();
+
+            function setHeroHeight() {
+                if (window.innerWidth <= 600) {
+                    $('.parallax-container.hero').css('height', '220px');
+                }
+                else if (window.innerWidth <= 992) {
+                    $('.parallax-container.hero').css('height', '300px');
+                }
+                else {
+                    $('.parallax-container.hero').css('height', '360px');
+                }
+            }
+
+            setHeroHeight();
+            $(window).on('resize', setHeroHeight);
+
+        });
+    </script>
+
+</body>
+</html>
