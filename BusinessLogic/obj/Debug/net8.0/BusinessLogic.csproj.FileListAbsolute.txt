@@ -1,0 +1,62 @@
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.deps.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfo.cs
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\Business.CF5D6E35.Up2Date
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\refint\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v29\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\ref\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.deps.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfo.cs
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\Business.CF5D6E35.Up2Date
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\refint\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\ref\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.deps.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfo.cs
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\Business.CF5D6E35.Up2Date
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\refint\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania_v33\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\ref\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.deps.json
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\BusinessLogic.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\MakeAWishDB.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\bin\Debug\net8.0\MakeAWishDB.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.ResolveComReference.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfo.cs
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\Business.CF5D6E35.Up2Date
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\refint\BusinessLogic.dll
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\BusinessLogic.pdb
+C:\Users\Ania\Desktop\ProjektCukiernia\MakeAWish_do pokazania\MakeAWish_do pokazania\BusinessLogic\obj\Debug\net8.0\ref\BusinessLogic.dll
