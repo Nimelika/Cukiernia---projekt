@@ -1,0 +1,350 @@
+﻿<local:SingleViewBase
+    x:Class="DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.Invoice.CreateInvoiceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DesktopApp.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="800"
+    d:DesignWidth="900"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Views/TabStyleResources.xaml" />
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <StackPanel Margin="10" Orientation="Vertical">
+
+
+            <Expander
+                FontWeight="SemiBold"
+                Header="General Information"
+                IsExpanded="True">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Content="Invoice Date:" />
+                    <DatePicker
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        SelectedDate="{Binding InvoiceDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Content="Due Date:" />
+                    <DatePicker
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        SelectedDate="{Binding DueDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <CheckBox
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Content="Is Paid"
+                        IsChecked="{Binding IsPaid, Mode=TwoWay}" />
+                </Grid>
+            </Expander>
+
+
+            <Expander
+                FontWeight="SemiBold"
+                Header="Order and Payment"
+                IsExpanded="True">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Content="Order:" />
+                    <ComboBox
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Background="{DynamicResource MaterialDesignPaper}"
+                        DisplayMemberPath="Value"
+                        Foreground="{DynamicResource MaterialDesignBody}"
+                        ItemsSource="{Binding OrderComboBoxItems}"
+                        SelectedValue="{Binding OrderId, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedValuePath="Key"
+                        Style="{StaticResource StandardComboBoxStyle}" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Content="Payment Method:" />
+                    <ComboBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        DisplayMemberPath="Value"
+                        ItemsSource="{Binding PaymentMethodComboBoxItems}"
+                        SelectedValue="{Binding PaymentMethod, Mode=TwoWay}"
+                        SelectedValuePath="Key"
+                        Style="{StaticResource StandardComboBoxStyle}" />
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Content="Notes:" />
+                    <TextBox
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Style="{StaticResource StandardTextBoxStyle}"
+                        Text="{Binding Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+            </Expander>
+            <Expander
+                FontWeight="SemiBold"
+                Header="Order Items (Read Only)"
+                IsExpanded="True">
+
+                <DataGrid
+                    Height="75"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding SelectedOrderItems}">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Binding="{Binding CakeName}" Header="Cake" />
+
+                        <DataGridTextColumn Binding="{Binding CakeSizeName}" Header="Size" />
+
+                        <DataGridTextColumn Binding="{Binding UnitPrice}" Header="Unit Price" />
+
+                        <DataGridTextColumn Binding="{Binding Quantity}" Header="Quantity" />
+
+                        <DataGridTextColumn Binding="{Binding PersonalizedText}" Header="Personalized Text" />
+
+                        <DataGridTextColumn Binding="{Binding Notes}" Header="Notes" />
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Expander>
+
+
+            <Expander
+                FontWeight="SemiBold"
+                Header="Invoice Items"
+                IsExpanded="True">
+                <StackPanel Margin="10">
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Button
+                            Width="210"
+                            Margin="0,0,10,10"
+                            Command="{Binding CopyOrderItemsCommand}"
+                            Content="Copy Order Items to Invoice" />
+
+                        <Button
+                            Width="210"
+                            Margin="0,0,10,10"
+                            Command="{Binding AddInvoiceItemCommand}"
+                            Content="Add Invoice Item Manually" />
+                    </StackPanel>
+                    <DataGrid
+                        MinRowHeight="20"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        ItemsSource="{Binding InvoiceItems}">
+
+                        <DataGrid.Resources>
+
+
+                            <Style x:Key="DgDisplayText" TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="#2D2424" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                            </Style>
+
+                            <Style
+                                x:Key="DgEditText"
+                                BasedOn="{StaticResource MaterialDesignTextBox}"
+                                TargetType="TextBox">
+                                <Setter Property="Foreground" Value="#2D2424" />
+                                <Setter Property="Background" Value="#FFF5F5F5" />
+                                <Setter Property="CaretBrush" Value="#2D2424" />
+                                <Setter Property="SelectionBrush" Value="#50607D8B" />
+                                <Setter Property="BorderBrush" Value="#80666666" />
+                            </Style>
+
+                        </DataGrid.Resources>
+
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Background" Value="#FFF5F5F5" />
+                                <Setter Property="Foreground" Value="#2D2424" />
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsEditing" Value="True">
+                                        <Setter Property="Background" Value="#FFF5F5F5" />
+                                        <Setter Property="Foreground" Value="#2D2424" />
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#FFE2DCD5" />
+                                        <Setter Property="Foreground" Value="#2D2424" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <DataGrid.Columns>
+
+                            <DataGridTemplateColumn Header="Product">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ProductId}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox
+                                            Background="#FFF5F5F5"
+                                            DisplayMemberPath="Value"
+                                            Foreground="#2D2424"
+                                            ItemsSource="{Binding DataContext.ProductComboBoxItems, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                            SelectedValue="{Binding ProductId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                            SelectedValuePath="Key" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn
+                                Binding="{Binding Quantity}"
+                                EditingElementStyle="{StaticResource DgEditText}"
+                                ElementStyle="{StaticResource DgDisplayText}"
+                                Header="Quantity" />
+
+                            <DataGridTextColumn
+                                Binding="{Binding UnitPrice}"
+                                EditingElementStyle="{StaticResource DgEditText}"
+                                ElementStyle="{StaticResource DgDisplayText}"
+                                Header="Unit Price" />
+
+                            <DataGridTextColumn
+                                Binding="{Binding VatRate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                EditingElementStyle="{StaticResource DgEditText}"
+                                ElementStyle="{StaticResource DgDisplayText}"
+                                Header="VAT %" />
+
+
+                            <DataGridTextColumn
+                                Binding="{Binding PreviewLineNet}"
+                                ElementStyle="{StaticResource DgDisplayText}"
+                                Header="Net"
+                                IsReadOnly="True" />
+
+                            <DataGridTextColumn
+                                Binding="{Binding PreviewLineVat}"
+                                ElementStyle="{StaticResource DgDisplayText}"
+                                Header="VAT"
+                                IsReadOnly="True" />
+
+                            <DataGridTextColumn
+                                Binding="{Binding PreviewLineGross}"
+                                ElementStyle="{StaticResource DgDisplayText}"
+                                Header="Gross"
+                                IsReadOnly="True" />
+
+
+                            <DataGridTemplateColumn Header="Delete">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button
+                                            Command="{Binding DataContext.RemoveInvoiceItemCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                            CommandParameter="{Binding}"
+                                            Content="X" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </StackPanel>
+            </Expander>
+            <Expander
+                FontWeight="SemiBold"
+                Header="TOTAL"
+                IsExpanded="True">
+                <StackPanel
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+
+                    <TextBlock
+                        Margin="0,0,5,0"
+                        FontWeight="SemiBold"
+                        Text="Net:" />
+                    <TextBlock Width="100" Text="{Binding PreviewTotalNet}" />
+
+                    <TextBlock
+                        Margin="15,0,5,0"
+                        FontWeight="SemiBold"
+                        Text="VAT:" />
+                    <TextBlock Width="100" Text="{Binding PreviewTotalVat}" />
+
+                    <TextBlock
+                        Margin="15,0,5,0"
+                        FontWeight="SemiBold"
+                        Text="Gross:" />
+                    <TextBlock Width="100" Text="{Binding PreviewTotalGross}" />
+                </StackPanel>
+
+
+            </Expander>
+
+            <Expander
+                FontWeight="SemiBold"
+                Header="Print"
+                IsExpanded="True">
+                <StackPanel
+                    Margin="0,10,0,10"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+
+                    <Button
+                        Width="210"
+                        Command="{Binding SelectTemplateCommand}"
+                        Content="Select template" />
+
+                    <TextBlock
+                        Margin="0,10,0,0"
+                        Text="{Binding SelectedTemplateFileName}"
+                        TextWrapping="Wrap" />
+
+                </StackPanel>
+
+
+            </Expander>
+
+        </StackPanel>
+    </Grid>
+</local:SingleViewBase>

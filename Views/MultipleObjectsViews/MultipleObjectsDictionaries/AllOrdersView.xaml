@@ -1,0 +1,119 @@
+﻿<local:AllViewBase
+    x:Class="DesktopApp.Views.MultipleObjectsViews.MultipleObjectsDictionaries.AllOrdersView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DesktopApp.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/TabStyleResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <DataGrid
+            Grid.Row="1"
+            AlternationCount="1000"
+            AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            ColumnHeaderStyle="{StaticResource StandardDataGridHeaderStyle}"
+            IsReadOnly="True"
+            ItemsSource="{Binding List}"
+            SelectedItem="{Binding SelectedOrder}">
+
+            <!--  FIX: kolor czcionki  -->
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Foreground" Value="#2D2424" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FFE2DCD5" />
+                            <Setter Property="Foreground" Value="#2D2424" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn
+                    Width="80"
+                    Binding="{Binding Position}"
+                    Header="Pos" />
+                <DataGridTextColumn
+                    Width="100"
+                    Binding="{Binding OrderId}"
+                    Header="Order ID" />
+                <DataGridTextColumn
+                    Width="140"
+                    Binding="{Binding OrderDate}"
+                    Header="Order Date" />
+                <DataGridTextColumn
+                    Width="180"
+                    Binding="{Binding Customer}"
+                    Header="Customer" />
+                <DataGridTextColumn
+                    Width="160"
+                    Binding="{Binding GuestName}"
+                    Header="Guest Name" />
+                <DataGridTextColumn
+                    Width="200"
+                    Binding="{Binding GuestEmail}"
+                    Header="Guest Email" />
+                <DataGridTextColumn
+                    Width="140"
+                    Binding="{Binding GuestPhone}"
+                    Header="Phone" />
+                <DataGridTextColumn
+                    Width="160"
+                    Binding="{Binding Shop}"
+                    Header="Shop" />
+                <DataGridTextColumn
+                    Width="160"
+                    Binding="{Binding CollectionDate}"
+                    Header="Collection Date" />
+                <DataGridTextColumn
+                    Width="120"
+                    Binding="{Binding Status}"
+                    Header="Status" />
+
+                <!--  ACTIONS  -->
+                <DataGridTemplateColumn Width="Auto" Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Style="{StaticResource ActionsStackPanelStyle}">
+                                <Button
+                                    Command="{Binding DataContext.DetailsCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    CommandParameter="{Binding}"
+                                    Content="Display"
+                                    Style="{StaticResource ActionsStackPanelButtonStyle}" />
+                                <Button
+                                    Command="{Binding DataContext.UpdateCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    CommandParameter="{Binding}"
+                                    Content="Update"
+                                    Style="{StaticResource ActionsStackPanelButtonStyle}" />
+                                <Button
+                                    Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    CommandParameter="{Binding}"
+                                    Content="Delete"
+                                    Style="{StaticResource ActionsStackPanelButtonStyle}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:AllViewBase>

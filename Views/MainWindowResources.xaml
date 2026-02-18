@@ -1,0 +1,172 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vQuote="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.QuoteRequest"
+    xmlns:vm="clr-namespace:DesktopApp.ViewModels"
+    xmlns:vmInvoiceItemVM="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.InvoiceItemVM"
+    xmlns:vmInvoiceVM="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.InvoiceVM"
+    xmlns:vmOrderItemVM="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.OrderItemVM"
+    xmlns:vmOrderVM="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.OrderVM"
+    xmlns:vmQuote="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.QuoteRequestVM"
+    xmlns:vmmd="clr-namespace:DesktopApp.ViewModels.MulitipleObjectsViewModels.MultipleObjectsDictionariesVM"
+    xmlns:vmmdpc="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.ProductCategoryVM"
+    xmlns:vmmdrr="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.RegionVM"
+    xmlns:vmmultiple="clr-namespace:DesktopApp.ViewModels.MulitipleObjectsViewModels.MultipleObjectsDictionariesVM"
+    xmlns:vms="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels"
+    xmlns:vmsd="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM"
+    xmlns:vmultiple="clr-namespace:DesktopApp.Views.MultipleObjectsViews.MultipleObjectsDictionaries"
+    xmlns:vs="clr-namespace:DesktopApp.Views.SingleObjectViews"
+    xmlns:vspc="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.ProductCategory"
+    xmlns:vw="clr-namespace:DesktopApp.Views"
+    xmlns:vwmd="clr-namespace:DesktopApp.Views.MulitipleObjectsViews.MulitipleObjectsDictionaries"
+    xmlns:vws="clr-namespace:DesktopApp.Views.SingleObjectViews"
+    xmlns:vwsInvoiceItem="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.InvoiceItem"
+    xmlns:vwsOrder="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.Order"
+    xmlns:vwsOrderItem="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.OrderItem"
+    xmlns:vwsinvoice="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.Invoice"
+    xmlns:vCelebrationCake="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.CelebrationCake"
+    xmlns:vmCelebrationCake="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.CelebrationCakeVM"
+    xmlns:vvvMultiple="clr-namespace:DesktopApp.Views.MulitipleObjectsViews.MulitipleObjectsDictionaries"
+    
+    >
+
+    <!--  laczenie View z ViewModel zakladek  -->
+    <DataTemplate DataType="{x:Type vmCelebrationCake:UpdateCelebrationCakeViewModel}">
+        <vCelebrationCake:UpdateCelebrationCakeView />
+        
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmQuote:DeleteQuoteRequestViewModel}">
+        <vQuote:DeleteQuoteRequestView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmQuote:DisplayQuoteRequestViewModel}">
+        <vQuote:DisplayQuoteRequestView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmQuote:UpdateQuoteRequestViewModel}">
+        <vQuote:UpdateQuoteRequestView />
+    </DataTemplate>
+
+
+    <DataTemplate DataType="{x:Type vmInvoiceItemVM:CreateInvoiceItemViewModel}">
+        <vwsInvoiceItem:CreateInvoiceItemView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmInvoiceVM:CreateInvoiceViewModel}">
+        <vwsinvoice:CreateInvoiceView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmOrderItemVM:CreateOrderItemViewModel}">
+        <vwsOrderItem:CreateOrderItemView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmOrderVM:CreateOrderViewModel}">
+        <vwsOrder:CreateOrderView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmOrderVM:UpdateOrderViewModel}">
+        <vwsOrder:UpdateOrderView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmOrderVM:DeleteOrderViewModel}">
+        <vwsOrder:DeleteOrderView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmOrderVM:DisplayOrderViewModel}">
+        <vwsOrder:DisplayOrderView />
+    </DataTemplate>
+
+
+    <DataTemplate DataType="{x:Type vmmdrr:DeleteRegionViewModel}">
+        <vs:DeleteRegionView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmmdpc:DeleteProductCategoryViewModel}">
+        <vspc:DeleteProductCategoryView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmmdpc:DisplayProductCategoryViewModel}">
+        <vspc:DisplayProductCategoryView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmmdpc:UpdateProductCategoryViewModel}">
+        <vspc:UpdateProductCategoryView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmmdrr:DisplayRegionViewModel}">
+        <vs:DisplayRegionView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmmdrr:UpdateRegionViewModel}">
+        <vs:UpdateRegionView />
+    </DataTemplate>
+
+
+
+    <DataTemplate DataType="{x:Type vmmd:AllCountriesViewModel}">
+        <vwmd:AllCountriesView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmmd:AllRegionsViewModel}">
+        <vwmd:AllRegionsView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmmultiple:AllUserAccessViewModel}">
+        <vmultiple:AllUserAccessView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmmultiple:AllQuoteRequestsViewModel}">
+        <vmultiple:AllQuoteRequestsView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmmultiple:AllOrdersViewModel}">
+        <vmultiple:AllOrdersView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmmultiple:AllCelebrationCakesViewModel}">
+        <vvvMultiple:AllCelebrationCakesView />
+    </DataTemplate>
+
+
+
+    <DataTemplate DataType="{x:Type vmsd:CreateModuleViewModel}">
+        <vws:CreateModuleView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmsd:CreateCakeFillingViewModel}">
+        <vws:CreateCakeFillingView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmsd:CreateCountryViewModel}">
+        <vws:CreateCountryView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmsd:CreateCelebrationCakeSizeViewModel}">
+        <vws:CreateCelebrationCakeSizeView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmsd:CreatePaymentMethodViewModel}">
+        <vws:CreatePaymentMethodView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmmdpc:CreateProductCategoryViewModel}">
+        <vws:CreateProductCategoryView />
+    </DataTemplate>
+
+
+
+
+
+    <DataTemplate DataType="{x:Type vmmdrr:CreateRegionViewModel}">
+        <vws:CreateRegionView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmmd:AllModulesViewModel}">
+        <vwmd:AllModulesView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmmd:AllCakeFillingsViewModel}">
+        <vwmd:AllCakeFillingsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmmd:AllCelebrationCakeSizesViewModel}">
+        <vwmd:AllCelebrationCakeSizesView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmmd:AllPaymentMethodsViewModel}">
+        <vwmd:AllPaymentMethodsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmmd:AllProductCategoriesViewModel}">
+        <vwmd:AllProductCategoriesView />
+    </DataTemplate>
+    <!--
+    <DataTemplate DataType="{x:Type vmmd:AllPageHeadersViewModel}">
+        <vwmd:AllIDDocumentsView />
+    </DataTemplate>-->
+</ResourceDictionary>

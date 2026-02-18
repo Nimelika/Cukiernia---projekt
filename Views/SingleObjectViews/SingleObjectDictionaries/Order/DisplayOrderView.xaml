@@ -1,0 +1,85 @@
+﻿<local:SingleViewBase
+    x:Class="DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.Order.DisplayOrderView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:DesktopApp.Views">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Views/TabStyleResources.xaml" />
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <StackPanel>
+
+            <TextBlock Text="Order Details" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,10"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Order ID:"/>
+                <TextBlock Grid.Column="1" Text="{Binding OrderId}"/>
+
+                <Label Grid.Row="1" Content="Customer:"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Customer}"/>
+
+                <Label Grid.Row="2" Content="Guest Name:"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding GuestName}"/>
+
+                <Label Grid.Row="3" Content="Guest Email:"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding GuestEmail}"/>
+
+                <Label Grid.Row="4" Content="Phone:"/>
+                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding GuestPhone}"/>
+
+                <Label Grid.Row="5" Content="Shop:"/>
+                <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Shop}"/>
+
+                <Label Grid.Row="6" Content="Status:"/>
+                <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding Status}"/>
+
+                <Label Grid.Row="7" Content="Paid:"/>
+                <CheckBox Grid.Row="7" Grid.Column="1"
+                          IsChecked="{Binding IsPaid, Mode=OneWay}"
+                          IsEnabled="False"/>
+            </Grid>
+
+            <TextBlock Text="Order Items" FontWeight="SemiBold" Margin="0,15,0,5"/>
+
+            <DataGrid ItemsSource="{Binding OrderItems}"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      Height="200">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding OrderItemId}"/>
+                    <DataGridTextColumn Header="Cake" Binding="{Binding CelebrationCake}"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                    <DataGridTextColumn Header="Size" Binding="{Binding CelebrationCakeSize}"/>
+                    <DataGridTextColumn Header="Text" Binding="{Binding PersonalizedText}"/>
+                    <DataGridTextColumn Header="Notes" Binding="{Binding Notes}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button Content="Return"
+                    Width="120"
+                    HorizontalAlignment="Right"
+                    Margin="0,15,0,0"
+                    Command="{Binding ReturnCommand}"/>
+        </StackPanel>
+    </Grid>
+</local:SingleViewBase>
+

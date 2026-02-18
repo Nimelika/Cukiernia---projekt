@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Views\AccessAdminViews\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AccessAdminViews\ModulesViews\HomeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AccessAdminViews\ModulesViews\ProductionView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AccessAdminViews\ModulesViews\ProductsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AccessAdminViews\ModulesViews\SettingsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllCelebrationCakesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllModulesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllCountriesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllCakeFillingsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllOrdersView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllPaymentMethodsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllProductCategoriesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllQuoteRequestsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllUserAccessView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\CelebrationCake\UpdateCelebrationCakeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\CreateModuleView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\CreateCountryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllCelebrationCakeSizesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\CreateCakeFillingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\CelebrationCakeSizeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\CreatePaymentMethodView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\InvoiceItem\CreateInvoiceItemView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\Invoice\CreateInvoiceView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\OrderItem\CreateOrderItemView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\Order\CreateOrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\Order\DeleteOrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\Order\DisplayOrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\Order\UpdateOrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\ProductCategory\CreateProductCategoryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\ProductCategory\DeleteProductCategoryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\ProductCategory\DisplayProductCategoryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\ProductCategory\UpdateProductCategoryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\QuoteRequest\DeleteQuoteRequestView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\QuoteRequest\DisplayQuoteRequestView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\QuoteRequest\UpdateQuoteRequestView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllModulesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllCountriesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllCakeFillingsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllPaymentMethodsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllProductCategoriesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SingleObjectViews\SingleObjectDictionaries\CreateModuleView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SingleObjectViews\SingleObjectDictionaries\CreateCountryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllCelebrationCakeSizesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SingleObjectViews\SingleObjectDictionaries\CreateCakeFillingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SingleObjectViews\SingleObjectDictionaries\CelebrationCakeSizeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SingleObjectViews\SingleObjectDictionaries\CreatePaymentMethodView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SingleObjectViews\SingleObjectDictionaries\ProductCategory\CreateProductCategoryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
