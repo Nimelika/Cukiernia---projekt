@@ -1,0 +1,71 @@
+﻿<local:SingleViewBase
+    x:Class="DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.QuoteRequest.UpdateQuoteRequestView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DesktopApp.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Views/TabStyleResources.xaml" />
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Content="Guest Name:" Style="{StaticResource SemiBoldLabelStyle}"/>
+        <TextBox Grid.Row="0" Grid.Column="1"
+                 Style="{StaticResource StandardTextBoxStyle}"
+                 Text="{Binding GuestName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="1" Content="Guest Email:" Style="{StaticResource SemiBoldLabelStyle}"/>
+        <TextBox Grid.Row="1" Grid.Column="1"
+                 Style="{StaticResource StandardTextBoxStyle}"
+                 Text="{Binding GuestEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="2" Content="Phone:" Style="{StaticResource SemiBoldLabelStyle}"/>
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Style="{StaticResource StandardTextBoxStyle}"
+                 Text="{Binding Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="3" Content="Delivery Date:" Style="{StaticResource SemiBoldLabelStyle}"/>
+        <DatePicker Grid.Row="3" Grid.Column="1"
+                    SelectedDate="{Binding DesiredDeliveryDate, Mode=TwoWay}"/>
+
+        <Label Grid.Row="4" Content="Description:" Style="{StaticResource SemiBoldLabelStyle}"/>
+        <TextBox Grid.Row="4" Grid.Column="1"
+                 Height="70"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 Style="{StaticResource StandardTextBoxStyle}"
+                 Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="5" Content="Status:" Style="{StaticResource SemiBoldLabelStyle}"/>
+        <ComboBox Grid.Row="5" Grid.Column="1"
+          ItemsSource="{Binding StatusItems}"
+          SelectedValue="{Binding Status, Mode=TwoWay}"
+          SelectedValuePath="StatusId"
+          DisplayMemberPath="Name"
+          Style="{StaticResource StandardComboBoxStyle}" />
+
+
+        <Label Grid.Row="6" Content="Converted to Order:" Style="{StaticResource SemiBoldLabelStyle}"/>
+        <CheckBox Grid.Row="6" Grid.Column="1"
+                  IsChecked="{Binding IsConvertedToOrder, Mode=TwoWay}"/>
+    </Grid>
+</local:SingleViewBase>
+

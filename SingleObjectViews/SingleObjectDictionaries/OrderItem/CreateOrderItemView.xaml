@@ -1,0 +1,60 @@
+﻿<local:SingleViewBase x:Class="DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.OrderItem.CreateOrderItemView"             
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DesktopApp.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="600"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Views/TabStyleResources.xaml" />
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Content="Cake:"/>
+        <ComboBox Grid.Row="0" Grid.Column="1"
+                  ItemsSource="{Binding CakeComboBoxItems}"
+                  DisplayMemberPath="Value"
+                  SelectedValuePath="Key"
+                  SelectedValue="{Binding CelebrationCake, Mode=TwoWay}"
+                  Style="{StaticResource StandardComboBoxStyle}"/>
+
+        <Label Grid.Row="1" Content="Size:"/>
+        <ComboBox Grid.Row="1" Grid.Column="1"
+                  ItemsSource="{Binding CakeSizeComboBoxItems}"
+                  DisplayMemberPath="Value"
+                  SelectedValuePath="Key"
+                  SelectedValue="{Binding CelebrationCakeSize, Mode=TwoWay}"
+                  Style="{StaticResource StandardComboBoxStyle}"/>
+
+        <Label Grid.Row="2" Content="Quantity:"/>
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Style="{StaticResource StandardTextBoxStyle}"/>
+
+        <Label Grid.Row="3" Content="Unit Price:"/>
+        <TextBox Grid.Row="3" Grid.Column="1"
+                 Text="{Binding UnitPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Style="{StaticResource StandardTextBoxStyle}"/>
+
+        <Label Grid.Row="4" Content="Notes:"/>
+        <TextBox Grid.Row="4" Grid.Column="1"
+                 Text="{Binding Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Style="{StaticResource StandardTextBoxStyle}"/>
+    </Grid>
+    </local:SingleViewBase>

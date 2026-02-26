@@ -1,0 +1,134 @@
+﻿<local:SingleViewBase
+    x:Class="DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.CelebrationCake.CreateCelebrationCakeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DesktopApp.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="700"
+    d:DesignWidth="900"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Views/TabStyleResources.xaml" />
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="10">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="220" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- NAME -->
+            <Label Grid.Row="0" Content="Name:" Style="{StaticResource SemiBoldLabelStyle}" />
+            <TextBox Grid.Row="0" Grid.Column="1"
+                     Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource StandardTextBoxStyle}" />
+
+            <!-- DESCRIPTION -->
+            <Label Grid.Row="1" Content="Description:" Style="{StaticResource SemiBoldLabelStyle}" />
+            <TextBox Grid.Row="1" Grid.Column="1"
+                     Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource StandardTextBoxStyle}" />
+
+            <!-- IMAGE ALT -->
+            <Label Grid.Row="2" Content="Image Description:" Style="{StaticResource SemiBoldLabelStyle}" />
+            <TextBox Grid.Row="2" Grid.Column="1"
+                     Text="{Binding ImageAlt, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource StandardTextBoxStyle}" />
+
+            <!-- CAKE FILLING -->
+            <Label Grid.Row="3" Content="Cake Filling:" Style="{StaticResource SemiBoldLabelStyle}" />
+            <ComboBox Grid.Row="3" Grid.Column="1"
+                      ItemsSource="{Binding CakeFillingItems}"
+                      SelectedValue="{Binding CakeFilling, Mode=TwoWay}"
+                      SelectedValuePath="CakeFillingId"
+                      DisplayMemberPath="Name"
+                      Style="{StaticResource StandardComboBoxStyle}" />
+
+            <!-- PRICES -->
+            <Label Grid.Row="4" Content="Price Small:" Style="{StaticResource SemiBoldLabelStyle}" />
+            <TextBox Grid.Row="4" Grid.Column="1"
+                     Text="{Binding PriceSmall, Mode=TwoWay}"
+                     Style="{StaticResource StandardTextBoxStyle}" />
+
+            <Label Grid.Row="5" Content="Price Medium:" Style="{StaticResource SemiBoldLabelStyle}" />
+            <TextBox Grid.Row="5" Grid.Column="1"
+                     Text="{Binding PriceMedium, Mode=TwoWay}"
+                     Style="{StaticResource StandardTextBoxStyle}" />
+
+            <Label Grid.Row="6" Content="Price Large:" Style="{StaticResource SemiBoldLabelStyle}" />
+            <TextBox Grid.Row="6" Grid.Column="1"
+                     Text="{Binding PriceLarge, Mode=TwoWay}"
+                     Style="{StaticResource StandardTextBoxStyle}" />
+
+            <!-- FLAGS -->
+            <Label Grid.Row="7" Content="With Nuts:" />
+            <CheckBox Grid.Row="7" Grid.Column="1" IsChecked="{Binding WithNuts}" />
+
+            <Label Grid.Row="8" Content="With Fruits:" />
+            <CheckBox Grid.Row="8" Grid.Column="1" IsChecked="{Binding WithFruits}" />
+
+            <Label Grid.Row="9" Content="With Alcohol:" />
+            <CheckBox Grid.Row="9" Grid.Column="1" IsChecked="{Binding WithAlcohol}" />
+
+            <Label Grid.Row="10" Content="Vegan:" />
+            <CheckBox Grid.Row="10" Grid.Column="1" IsChecked="{Binding Vegan}" />
+
+            <Label Grid.Row="11" Content="Low Sugar:" />
+            <CheckBox Grid.Row="11" Grid.Column="1" IsChecked="{Binding LowSugar}" />
+
+            <Label Grid.Row="12" Content="No Sugar:" />
+            <CheckBox Grid.Row="12" Grid.Column="1" IsChecked="{Binding NoSugar}" />
+
+            <Label Grid.Row="13" Content="Wedding Offer:" />
+            <CheckBox Grid.Row="13" Grid.Column="1" IsChecked="{Binding WeddingOffer}" />
+
+            <Label Grid.Row="14" Content="Children Offer:" />
+            <CheckBox Grid.Row="14" Grid.Column="1" IsChecked="{Binding ChildrenOffer}" />
+
+            <!-- IMAGE PREVIEW + ACTIONS -->
+            <StackPanel Grid.Row="17" Grid.Column="0" Grid.ColumnSpan="2"
+                        Style="{StaticResource StackPanelForImageUpload}">
+
+                <Image Source="{Binding ImagePreview}"
+                       Style="{StaticResource ImageSmall}" />
+
+                <StackPanel Orientation="Vertical">
+                    <Button Margin="10"
+                            Command="{Binding UploadImageCommand}"
+                            Content="Upload Image" />
+                    <Button Margin="10"
+                            Command="{Binding DeleteImageCommand}"
+                            Content="Delete Image" />
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</local:SingleViewBase>
+
