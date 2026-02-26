@@ -20,6 +20,12 @@
     <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllCelebrationCakesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllInvoicesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllMainPageArticlesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllModulesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -41,7 +47,19 @@
     <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllQuoteRequestsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllTeamMembersView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllUserAccessView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\CelebrationCake\CreateCelebrationCakeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\CelebrationCake\DeleteCelebrationCakeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\CelebrationCake\DisplayCelebrationCakeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\CelebrationCake\UpdateCelebrationCakeView.xaml.cs">
@@ -71,6 +89,18 @@
     <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\Invoice\CreateInvoiceView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\MainPageArticle\CreateMainPageArticleView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\MainPageArticle\DeleteMainPageArticleView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\MainPageArticle\DisplayMainPageArticleView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\MainPageArticle\UpdateMainPageArticleView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\OrderItem\CreateOrderItemView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -84,6 +114,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\Order\UpdateOrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\PageHeroImage\CreatePageHeroImageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\ProductCategory\CreateProductCategoryView.xaml.cs">
@@ -105,6 +138,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\QuoteRequest\UpdateQuoteRequestView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\TeamMember\CreateTeamMemberView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\TeamMember\DeleteTeamMemberView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\TeamMember\DisplayTeamMemberView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\TeamMember\UpdateTeamMemberView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
