@@ -13,6 +13,18 @@ namespace PortalWWW.Models
             );
         }
 
+        // =========================
+        // HERO IMAGE
+        // =========================
+
+        public string? Header { get; set; }
+        public string? HeroImagePath { get; set; }
+        public string? HeroImageAlt { get; set; }
+
+        // =========================
+        // CUSTOMER DETAILS
+        // =========================
+
         [Required(ErrorMessage = "Full name is required")]
         public string GuestName { get; set; }
 
@@ -21,6 +33,10 @@ namespace PortalWWW.Models
         public string GuestEmail { get; set; }
 
         public string? Phone { get; set; }
+
+        // =========================
+        // ORDER DETAILS
+        // =========================
 
         [Required(ErrorMessage = "Please select a pickup location")]
         public int ShopId { get; set; }
@@ -33,6 +49,10 @@ namespace PortalWWW.Models
         public string Description { get; set; }
 
         public IFormFile? UploadedImage { get; set; }
+
+        // =========================
+        // CONSENTS
+        // =========================
 
         [Range(typeof(bool), "true", "true",
             ErrorMessage = "Privacy Policy consent is required")]

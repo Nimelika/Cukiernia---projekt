@@ -10,9 +10,17 @@ namespace PortalWWW.Models
             CollectionDate = DateTime.Today.AddDays(3);
         }
 
-        
+        // =========================
+        // HERO IMAGE
+        // =========================
+
+        public string? Header { get; set; }
+        public string? HeroImagePath { get; set; }
+        public string? HeroImageAlt { get; set; }
+
+        // =========================
         // GUEST DETAILS
-        
+        // =========================
 
         [Required(ErrorMessage = "Full name is required")]
         [StringLength(100)]
@@ -24,11 +32,11 @@ namespace PortalWWW.Models
         public string GuestEmail { get; set; }
 
         [StringLength(20)]
-        public string GuestPhone { get; set; }
+        public string? GuestPhone { get; set; }
 
-        
+        // =========================
         // COLLECTION DETAILS
-      
+        // =========================
 
         [Required(ErrorMessage = "Please select a pickup location")]
         public int ShopId { get; set; }
@@ -37,9 +45,9 @@ namespace PortalWWW.Models
         [DataType(DataType.Date)]
         public DateTime CollectionDate { get; set; }
 
-       
+        // =========================
         // CAKE FROM CATALOG
-       
+        // =========================
 
         [Required(ErrorMessage = "Please select a cake")]
         public int CelebrationCakeId { get; set; }
@@ -50,9 +58,10 @@ namespace PortalWWW.Models
         [Range(1, 100, ErrorMessage = "Quantity must be at least 1")]
         public int Quantity { get; set; } = 1;
 
-        
+        // =========================
         // PERSONALIZATION
-      
+        // =========================
+
         [StringLength(255, ErrorMessage = "Text is too long")]
         [DisplayFormat(ConvertEmptyStringToNull = true)]
         public string? PersonalizedText { get; set; }
@@ -61,19 +70,17 @@ namespace PortalWWW.Models
         [DisplayFormat(ConvertEmptyStringToNull = true)]
         public string? Notes { get; set; }
 
-
-        
+        // =========================
         // CONSENTS
-        
+        // =========================
 
         [Range(typeof(bool), "true", "true",
-    ErrorMessage = "Privacy Policy consent is required")]
+            ErrorMessage = "Privacy Policy consent is required")]
         public bool AcceptRodo { get; set; }
 
         [Range(typeof(bool), "true", "true",
             ErrorMessage = "Terms and Conditions consent is required")]
         public bool AcceptTerms { get; set; }
-
-
     }
 }
+

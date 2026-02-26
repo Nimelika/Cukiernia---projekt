@@ -1,17 +1,27 @@
 ﻿using MakeAWishDB.Context;
 using Microsoft.AspNetCore.Mvc;
 using PortalWWW.Models;
+using PortalWWW.Services;
+using System.Linq;
 
 namespace PortalWWW.Controllers
 {
     public class ContentController : Controller
     {
         private readonly SharedData_Entities _db;
+        private readonly PageHeroProvider _hero;
 
-        public ContentController(SharedData_Entities db)
+        public ContentController(
+            SharedData_Entities db,
+            PageHeroProvider hero)
         {
             _db = db;
+            _hero = hero;
         }
+
+        // =========================
+        // ARTICLE PAGES
+        // =========================
 
         public IActionResult Legal()
         {
@@ -28,20 +38,26 @@ namespace PortalWWW.Controllers
             return View("Article", GetPageContent(10));
         }
 
+        // =========================
+        // CONTENT BUILDER
+        // =========================
+
         private PageContentViewModel GetPageContent(int pageHeaderId)
         {
-            var header = _db.PageHeaders
-                .Where(p => p.PageHeaderId == pageHeaderId && p.IsActive && p.IsVisible == true)
-                .Select(p => p.DisplayedHeader)
-                .FirstOrDefault();
-
-            var article = _db.LongArticles
-                .FirstOrDefault(a => a.PageHeaderId == pageHeaderId && a.IsActive && a.IsPublished == true);
+            var hero = _hero.GetHero(pageHeaderId);
 
             var model = new PageContentViewModel
             {
-                Header = header
+                Header = hero.Header,
+                HeroImagePath = hero.HeroImagePath,
+                HeroImageAlt = hero.HeroImageAlt
             };
+
+            var article = _db.LongArticles
+                .FirstOrDefault(a =>
+                    a.PageHeaderId == pageHeaderId &&
+                    a.IsActive == true &&
+                    a.IsPublished == true);
 
             if (article != null)
             {
@@ -68,7 +84,6 @@ namespace PortalWWW.Controllers
 
             return model;
         }
-
     }
-
 }
+
