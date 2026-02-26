@@ -9,11 +9,14 @@ using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM;
 using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.CelebrationCakeVM;
 using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.InvoiceItemVM;
 using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.InvoiceVM;
+using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.MainPageArticleVM;
 using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.OrderItemVM;
 using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.OrderVM;
+using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.PageHeroImageVM;
 using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.ProductCategoryVM;
 using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.QuoteRequestVM;
 using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.RegionVM;
+using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.TeamMemberVM;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -49,20 +52,31 @@ namespace DesktopApp.ViewModels
                     // odœwie¿enie komend po loginie
                     CommandManager.InvalidateRequerySuggested(); } });
                 Messenger.Default.Register<DeleteRegionViewModel>(this, "RegionDelete", OnRegionDeleteMessageReceived);
+                Messenger.Default.Register<DeleteCelebrationCakeViewModel>(this, "CelebrationCakeDelete", OnCelebrationCakeDeleteMessageReceived);
             Messenger.Default.Register<DeleteProductCategoryViewModel>(this, "ProductCategoryDelete", OnProductCategoryDeleteMessageReceived);
             Messenger.Default.Register<DeleteQuoteRequestViewModel>(this, "QuoteRequestDelete", OnQuoteRequestDeleteMessageReceived);
             Messenger.Default.Register<DeleteOrderViewModel>(this, "OrderDelete", OnOrderDeleteMessageReceived);
+            Messenger.Default.Register<DeleteMainPageArticleViewModel>(this, "MainPageArticleDelete", OnMainPageArticleDeleteMessageReceived);
+            Messenger.Default.Register<DeleteTeamMemberViewModel>(this, "TeamMemberDelete", OnTeamMemberDeleteMessageReceived);
             Messenger.Default.Register<UpdateRegionViewModel>(this, "RegionUpdate", OnRegionUpdateMessageReceived);
             Messenger.Default.Register<UpdateCelebrationCakeViewModel>(this, "CelebrationCakeUpdate", OnCelebrationCakeUpdateMessageReceived);
             Messenger.Default.Register<UpdateProductCategoryViewModel>(this, "ProductCategoryUpdate", OnProductCategoryUpdateMessageReceived);
             Messenger.Default.Register<UpdateOrderViewModel>(this, "OrderUpdate", OnOrderUpdateMessageReceived);
+            Messenger.Default.Register<UpdateMainPageArticleViewModel>(this, "MainPageArticleUpdate", OnMainPageArticleUpdateMessageReceived);
+            Messenger.Default.Register<UpdateTeamMemberViewModel>(this, "TeamMemberUpdate", OnTeamMemberUpdateMessageReceived);
             Messenger.Default.Register<UpdateQuoteRequestViewModel>(this, "QuoteRequestUpdate", OnQuoteRequestUpdateMessageReceived);
             Messenger.Default.Register<DisplayRegionViewModel>(this, "RegionDisplay", OnRegionDisplayMessageReceived);
-			Messenger.Default.Register<DisplayProductCategoryViewModel>(this, "ProductCategoryDisplay", OnProductCategoryDisplayMessageReceived);
+            Messenger.Default.Register<DisplayCelebrationCakeViewModel>(this, "CelebrationCakeDisplay", OnCelebrationCakeDisplayMessageReceived);
+            Messenger.Default.Register<DisplayProductCategoryViewModel>(this, "ProductCategoryDisplay", OnProductCategoryDisplayMessageReceived);
             Messenger.Default.Register<DisplayQuoteRequestViewModel>(this, "QuoteRequestDisplay", OnQuoteRequestDisplayMessageReceived);
             Messenger.Default.Register<DisplayOrderViewModel>(this, "OrderDisplay", OnOrderDisplayMessageReceived);
+            Messenger.Default.Register<DisplayMainPageArticleViewModel>(this, "MainPageArticleDisplay", OnMainPageArticleDisplayMessageReceived);
+            Messenger.Default.Register<DisplayTeamMemberViewModel>(this, "TeamMemberDisplay", OnTeamMemberDisplayMessageReceived);
 
             Messenger.Default.Register<string>(this, msg => { if (msg == "Add Regions") { CreateRegionCommand.Execute(null); } });
+            Messenger.Default.Register<string>(this, msg => { if (msg == "Add Celebration Cake") { CreateCelebrationCakeCommand.Execute(null); } });
+            Messenger.Default.Register<string>(this, msg => { if (msg == "Add Main Page Article") { CreateMainPageArticleCommand.Execute(null); } });
+            Messenger.Default.Register<string>(this, msg => { if (msg == "Add Team Member") { CreateTeamMemberCommand.Execute(null); } });
             Messenger.Default.Register<string>(this, msg => { if (msg == "Add Product Categories") { CreateProductCategoryCommand.Execute(null); } });
             Messenger.Default.Register<string>(this, msg => { if (msg == "Add Orders") { CreateOrderCommand.Execute(null); } });
             Messenger.Default.Register<string>(this, msg =>
@@ -102,6 +116,12 @@ namespace DesktopApp.ViewModels
         showAllCelebrationCakes,
         () => _currentUser.AllowedModuleCodes.Contains("PRODUCTS")
     );
+        public ICommand CreateCelebrationCakeCommand =>
+           new BaseCommand(
+               () => createView(new CreateCelebrationCakeViewModel()),
+               () => _currentUser.AllowedModuleCodes.Contains("PRODUCTS")
+           );
+
 
         public ICommand CreateProductCategoryCommand =>
             new BaseCommand(
@@ -142,11 +162,20 @@ namespace DesktopApp.ViewModels
                 () => createView(new CreateInvoiceItemViewModel()),
                 () => _currentUser.AllowedModuleCodes.Contains("FINANCE")
             );
-       
+        public ICommand AllInvoicesCommand =>
+            new BaseCommand(
+                showAllInvoices,
+                () => _currentUser.AllowedModuleCodes.Contains("FINANCE")
+            );
 
         public ICommand AllRegionsCommand =>
     new BaseCommand(
         showAllRegions,
+        () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+    );
+        public ICommand AllMainPageArticlesCommand =>
+    new BaseCommand(
+        showAllMainPageArticles,
         () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
     );
         public ICommand AllUserAccessesCommand =>
@@ -158,6 +187,23 @@ namespace DesktopApp.ViewModels
         public ICommand CreateRegionCommand =>
             new BaseCommand(
                 () => createView(new CreateRegionViewModel()),
+                () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+            );
+       
+
+        public ICommand CreateTeamMemberCommand =>
+            new BaseCommand(
+                () => createView(new CreateTeamMemberViewModel()),
+                () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+            );
+        public ICommand CreateMainPageArticleCommand =>
+            new BaseCommand(
+                () => createView(new CreateMainPageArticleViewModel()),
+                () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+            );
+        public ICommand CreatePageHeroImageCommand =>
+            new BaseCommand(
+                () => createView(new CreatePageHeroImageViewModel()),
                 () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
             );
 
@@ -184,7 +230,11 @@ namespace DesktopApp.ViewModels
                 () => createView(new CreateModuleViewModel()),
                 () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
             );
-
+        public ICommand AllTeamMembersCommand =>
+            new BaseCommand(
+                showAllTeamMembers,
+                () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+            );
 
 
 
@@ -412,12 +462,42 @@ namespace DesktopApp.ViewModels
 			}
 			this.setActiveWorkspace(workspace);
 		}
+        private void showAllTeamMembers()
+        {
+            AllTeamMembersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is AllTeamMembersViewModel) as AllTeamMembersViewModel;
+            if (workspace == null)
+            {
+                workspace = new AllTeamMembersViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
         private void showAllRegions()
         {
             AllRegionsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is AllRegionsViewModel) as AllRegionsViewModel;
             if (workspace == null)
             {
                 workspace = new AllRegionsViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
+        private void showAllMainPageArticles()
+        {
+            AllMainPageArticlesViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is AllMainPageArticlesViewModel) as AllMainPageArticlesViewModel;
+            if (workspace == null)
+            {
+                workspace = new AllMainPageArticlesViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
+        private void showAllInvoices()
+        {
+            AllInvoicesViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is AllInvoicesViewModel) as AllInvoicesViewModel;
+            if (workspace == null)
+            {
+                workspace = new AllInvoicesViewModel();
                 this.Workspaces.Add(workspace);
             }
             this.setActiveWorkspace(workspace);
@@ -548,6 +628,16 @@ namespace DesktopApp.ViewModels
             if (deleteVm == null) return;
             createView(deleteVm);
         }
+        private void OnCelebrationCakeDeleteMessageReceived(DeleteCelebrationCakeViewModel deleteVm)
+        {
+            if (deleteVm == null) return;
+            createView(deleteVm);
+        }
+        private void OnMainPageArticleDeleteMessageReceived(DeleteMainPageArticleViewModel deleteVm)
+        {
+            if (deleteVm == null) return;
+            createView(deleteVm);
+        }
         private void OnProductCategoryDeleteMessageReceived(DeleteProductCategoryViewModel deleteVm)
         {
             if (deleteVm == null) return;
@@ -563,12 +653,29 @@ namespace DesktopApp.ViewModels
             if (deleteVm == null) return;
             createView(deleteVm);
         }
-        private void OnRegionUpdateMessageReceived(UpdateRegionViewModel updateVM)
+        private void OnTeamMemberDeleteMessageReceived(DeleteTeamMemberViewModel deleteVm)
+        {
+            if (deleteVm == null) return;
+            createView(deleteVm);
+        }
+        
+        private void OnTeamMemberUpdateMessageReceived(UpdateTeamMemberViewModel updateVM)
+        {
+            if (updateVM == null) return;
+            createView(updateVM);
+        }
+        private void OnMainPageArticleUpdateMessageReceived(UpdateMainPageArticleViewModel updateVM)
         {
             if (updateVM == null) return;
             createView(updateVM);
         }
         private void OnQuoteRequestUpdateMessageReceived(UpdateQuoteRequestViewModel updateVM)
+        {
+            if (updateVM == null) return;
+            createView(updateVM);
+        }
+        
+        private void OnRegionUpdateMessageReceived(UpdateRegionViewModel updateVM)
         {
             if (updateVM == null) return;
             createView(updateVM);
@@ -592,6 +699,21 @@ namespace DesktopApp.ViewModels
 		{
 			if (displayVM == null) return;
 			createView(displayVM);
+        }
+        private void OnCelebrationCakeDisplayMessageReceived(DisplayCelebrationCakeViewModel displayVM)
+        {
+            if (displayVM == null) return;
+            createView(displayVM);
+        }
+        private void OnMainPageArticleDisplayMessageReceived(DisplayMainPageArticleViewModel displayVM)
+        {
+            if (displayVM == null) return;
+            createView(displayVM);
+        }
+        private void OnTeamMemberDisplayMessageReceived(DisplayTeamMemberViewModel displayVM)
+        {
+            if (displayVM == null) return;
+            createView(displayVM);
         }
         private void OnProductCategoryDisplayMessageReceived(DisplayProductCategoryViewModel displayVM)
         {

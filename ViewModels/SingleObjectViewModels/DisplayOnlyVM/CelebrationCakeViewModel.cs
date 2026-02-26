@@ -1,4 +1,5 @@
 ﻿using MakeAWishDB.Entities;
+using System;
 using System.IO;
 using System.Windows.Media.Imaging;
 
@@ -6,6 +7,8 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.DisplayOnlyVM
 {
     public class CelebrationCakeViewModel
     {
+        private const string SharedUploadsRoot = @"C:\MakeAWishShared\uploads";
+
         public CelebrationCake Item { get; }
 
         public CelebrationCakeViewModel(CelebrationCake item)
@@ -34,6 +37,7 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.DisplayOnlyVM
         public bool? WeddingOffer => Item.WeddingOffer;
         public bool? ChildrenOffer => Item.ChildrenOffer;
 
+        // LADOWANIE MINIATURY W DESKTOPAPP
         public BitmapImage ImagePreview
         {
             get
@@ -43,10 +47,16 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.DisplayOnlyVM
 
                 try
                 {
+                    var fileName = Path.GetFileName(Item.ImageUrl);
+                    var localPath = Path.Combine(SharedUploadsRoot, fileName);
+
+                    if (!File.Exists(localPath))
+                        return null;
+
                     var bitmap = new BitmapImage();
                     bitmap.BeginInit();
                     bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                    bitmap.UriSource = new System.Uri(Item.ImageUrl, System.UriKind.Absolute);
+                    bitmap.UriSource = new Uri(localPath, UriKind.Absolute);
                     bitmap.EndInit();
                     bitmap.Freeze();
                     return bitmap;

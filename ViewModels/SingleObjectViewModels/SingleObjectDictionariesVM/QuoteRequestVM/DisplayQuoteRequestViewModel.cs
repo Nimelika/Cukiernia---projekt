@@ -1,7 +1,9 @@
 ﻿using DesktopApp.ViewModels.AbstractViewModels;
 using MakeAWishDB.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Media.Imaging;
 
 namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.QuoteRequestVM
@@ -11,6 +13,15 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
         public DisplayQuoteRequestViewModel()
             : base("Display Quote Request")
         {
+        }
+
+        
+        public void Load(int id)
+        {
+            item = sharedData_Entities.QuoteRequests
+                .Include(q => q.StatusNavigation)
+                .Include(q => q.CustomerNavigation)
+                .FirstOrDefault(q => q.QuoteId == id);
         }
 
         public int QuoteId => item?.QuoteId ?? 0;
@@ -67,4 +78,3 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
         }
     }
 }
-

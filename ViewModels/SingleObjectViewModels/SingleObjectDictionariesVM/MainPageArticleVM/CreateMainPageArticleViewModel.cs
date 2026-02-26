@@ -7,31 +7,65 @@ using System.IO;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.ProductCategoryVM
+namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.MainPageArticleVM
 {
-    public class CreateProductCategoryViewModel
-        : CreateViewModel<ProductCategory>
+    public class CreateMainPageArticleViewModel
+        : CreateViewModel<MainPageArticle>
     {
-        // KATALOG DLA DESKTOP + WEB
+        // WSPÓLNY KATALOG DLA DESKTOP + WEB
         private const string SharedUploadsRoot = @"C:\MakeAWishShared\uploads";
 
-        public CreateProductCategoryViewModel()
-            : base("Add Product Category")
+        public CreateMainPageArticleViewModel()
+            : base("Add Main Page Article")
         {
             UploadImageCommand = new RelayCommand(UploadImage);
             DeleteImageCommand = new RelayCommand(DeleteImage);
         }
 
-        public string Name
+        protected override void InitializeNewItem()
         {
-            get => item.Name;
+            item.IsActive = true;
+            item.IsPublished = false;
+            item.PublishDate = DateTime.Now;
+        }
+
+        public string Title
+        {
+            get => item.Title;
             set
             {
-                if (item.Name != value)
-                {
-                    item.Name = value;
-                    OnPropertyChanged(() => Name);
-                }
+                item.Title = value;
+                OnPropertyChanged(() => Title);
+            }
+        }
+
+        public string Body
+        {
+            get => item.Body;
+            set
+            {
+                item.Body = value;
+                OnPropertyChanged(() => Body);
+            }
+        }
+
+        public DateTime? PublishDate
+        {
+            get => item.PublishDate;
+            set
+            {
+                item.PublishDate = value;
+                OnPropertyChanged(() => PublishDate);
+            }
+        }
+
+        public bool? IsPublished
+        {
+            get => item.IsPublished;
+            set
+            {
+                item.IsPublished = value;
+                OnPropertyChanged(() => IsPublished);
             }
         }
 
@@ -40,22 +74,19 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
             get => item.ImageAlt;
             set
             {
-                if (item.ImageAlt != value)
-                {
-                    item.ImageAlt = value;
-                    OnPropertyChanged(() => ImageAlt);
-                }
+                item.ImageAlt = value;
+                OnPropertyChanged(() => ImageAlt);
             }
         }
 
-        // sciezka WEBOWA (DB + WEB)
-        public string ImagePath
+        // ŚCIEŻKA WEBOWA (DB + WEB)
+        public string ImageUrl
         {
-            get => item.ImagePath;
+            get => item.ImageUrl;
             set
             {
-                item.ImagePath = value;
-                OnPropertyChanged(() => ImagePath);
+                item.ImageUrl = value;
+                OnPropertyChanged(() => ImageUrl);
                 OnPropertyChanged(() => ImagePreview);
             }
         }
@@ -68,12 +99,12 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(ImagePath))
+                if (string.IsNullOrWhiteSpace(ImageUrl))
                     return null;
 
                 try
                 {
-                    var fileName = Path.GetFileName(ImagePath);
+                    var fileName = Path.GetFileName(ImageUrl);
                     var localPath = Path.Combine(SharedUploadsRoot, fileName);
 
                     if (!File.Exists(localPath))
@@ -94,7 +125,6 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
             }
         }
 
-        // upload zdjecia do katalogu wspolnego + zapis sciezki WEBOWEJ do DB
         private void UploadImage()
         {
             var dialog = new OpenFileDialog
@@ -112,13 +142,13 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
 
             File.Copy(dialog.FileName, fullPath, overwrite: true);
 
-            // zapis sciezki WEBOWEJ do DB
-            ImagePath = "/uploads/" + fileName;
+            // zapis ścieżki WEBOWEJ do DB
+            ImageUrl = "/uploads/" + fileName;
         }
 
         private void DeleteImage()
         {
-            ImagePath = null;
+            ImageUrl = null;
         }
     }
 }

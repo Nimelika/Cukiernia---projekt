@@ -3,52 +3,100 @@ using DesktopApp.ViewModels.AbstractViewModels;
 using MakeAWishDB.Entities;
 using Microsoft.Win32;
 using System;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.ProductCategoryVM
+namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.PageHeroImageVM
 {
-    public class CreateProductCategoryViewModel
-        : CreateViewModel<ProductCategory>
+    public class CreatePageHeroImageViewModel
+        : CreateViewModel<PageHeroImage>
     {
-        // KATALOG DLA DESKTOP + WEB
         private const string SharedUploadsRoot = @"C:\MakeAWishShared\uploads";
 
-        public CreateProductCategoryViewModel()
-            : base("Add Product Category")
+        public CreatePageHeroImageViewModel()
+            : base("Add Page Hero Image")
         {
             UploadImageCommand = new RelayCommand(UploadImage);
             DeleteImageCommand = new RelayCommand(DeleteImage);
+
+            LoadPageHeaders();
         }
 
-        public string Name
+        protected override void InitializeNewItem()
         {
-            get => item.Name;
+            item.IsActive = true;
+            item.IsVisible = true;
+            item.CreatedAt = DateTime.Now;
+            item.DisplayOrder = 1;
+        }
+
+        // =========================
+        // PAGE HEADERS (COMBOBOX)
+        // =========================
+        public ObservableCollection<PageHeader> PageHeaders { get; }
+            = new ObservableCollection<PageHeader>();
+
+        private void LoadPageHeaders()
+        {
+            var headers = sharedData_Entities.PageHeaders
+                .Where(p => p.IsActive == true && p.IsVisible == true)
+                .OrderBy(p => p.PageHeaderId)
+                .ToList();
+
+            PageHeaders.Clear();
+            foreach (var header in headers)
+                PageHeaders.Add(header);
+        }
+
+        public int PageHeaderId
+        {
+            get => item.PageHeaderId;
             set
             {
-                if (item.Name != value)
-                {
-                    item.Name = value;
-                    OnPropertyChanged(() => Name);
-                }
+                item.PageHeaderId = value;
+                OnPropertyChanged(() => PageHeaderId);
             }
         }
 
+        // =========================
+        // FIELDS
+        // =========================
         public string ImageAlt
         {
             get => item.ImageAlt;
             set
             {
-                if (item.ImageAlt != value)
-                {
-                    item.ImageAlt = value;
-                    OnPropertyChanged(() => ImageAlt);
-                }
+                item.ImageAlt = value;
+                OnPropertyChanged(() => ImageAlt);
             }
         }
 
-        // sciezka WEBOWA (DB + WEB)
+        public int DisplayOrder
+        {
+            get => item.DisplayOrder;
+            set
+            {
+                item.DisplayOrder = value;
+                OnPropertyChanged(() => DisplayOrder);
+            }
+        }
+
+        public bool? IsVisible
+        {
+            get => item.IsVisible;
+            set
+            {
+                item.IsVisible = value;
+                OnPropertyChanged(() => IsVisible);
+            }
+        }
+
+        // =========================
+        // IMAGE
+        // =========================
         public string ImagePath
         {
             get => item.ImagePath;
@@ -63,7 +111,6 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
         public ICommand UploadImageCommand { get; }
         public ICommand DeleteImageCommand { get; }
 
-        // MINIATURA W DESKTOPAPP
         public BitmapImage ImagePreview
         {
             get
@@ -94,7 +141,6 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
             }
         }
 
-        // upload zdjecia do katalogu wspolnego + zapis sciezki WEBOWEJ do DB
         private void UploadImage()
         {
             var dialog = new OpenFileDialog
@@ -112,7 +158,6 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
 
             File.Copy(dialog.FileName, fullPath, overwrite: true);
 
-            // zapis sciezki WEBOWEJ do DB
             ImagePath = "/uploads/" + fileName;
         }
 
@@ -122,3 +167,4 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
         }
     }
 }
+

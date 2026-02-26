@@ -11,19 +11,37 @@ using System.Windows.Media.Imaging;
 
 namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.CelebrationCakeVM
 {
-    public class UpdateCelebrationCakeViewModel : UpdateViewModel<CelebrationCake>
+    public class CreateCelebrationCakeViewModel
+        : CreateViewModel<CelebrationCake>
     {
         private const string SharedUploadsRoot = @"C:\MakeAWishShared\uploads";
 
-        public UpdateCelebrationCakeViewModel()
-            : base("Update Celebration Cake")
+        public CreateCelebrationCakeViewModel()
+            : base("Add Celebration Cake")
         {
             UploadImageCommand = new RelayCommand(UploadImage);
             DeleteImageCommand = new RelayCommand(DeleteImage);
         }
 
-        public int CelebrationCakeId => item.CelebrationCakeId;
+        // =========================
+        // DEFAULT VALUES
+        // =========================
+        protected override void InitializeNewItem()
+        {
+            item.IsActive = true;
+            item.WithNuts = false;
+            item.WithFruits = false;
+            item.WithAlcohol = false;
+            item.Vegan = false;
+            item.LowSugar = false;
+            item.NoSugar = false;
+            item.WeddingOffer = false;
+            item.ChildrenOffer = false;
+        }
 
+        // =========================
+        // FIELDS
+        // =========================
         public string Name
         {
             get => item.Name;
@@ -126,13 +144,21 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
             set { item.ChildrenOffer = value; OnPropertyChanged(() => ChildrenOffer); }
         }
 
+        // =========================
+        // COMBOBOX DATA
+        // =========================
         public ObservableCollection<CakeFilling> CakeFillingItems =>
             new(sharedData_Entities.CakeFillings.Where(f => f.IsActive).ToList());
 
+        // =========================
+        // IMAGE COMMANDS
+        // =========================
         public ICommand UploadImageCommand { get; }
         public ICommand DeleteImageCommand { get; }
 
-        // 🔥 MINIATURA W DESKTOPAPP
+        // =========================
+        // IMAGE PREVIEW
+        // =========================
         public BitmapImage ImagePreview
         {
             get
@@ -187,15 +213,5 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
         {
             ImageUrl = null;
         }
-
-        public override void Load(int id)
-        {
-            item = sharedData_Entities.CelebrationCakes
-                .First(c => c.CelebrationCakeId == id);
-
-            OnPropertyChanged(() => ImagePreview);
-        }
-
-        protected override string ValidateProperty(string propertyName) => null;
     }
 }

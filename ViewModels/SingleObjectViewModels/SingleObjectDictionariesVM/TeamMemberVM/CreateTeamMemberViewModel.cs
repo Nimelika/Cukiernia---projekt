@@ -7,19 +7,24 @@ using System.IO;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.ProductCategoryVM
+namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.TeamMemberVM
 {
-    public class CreateProductCategoryViewModel
-        : CreateViewModel<ProductCategory>
+    public class CreateTeamMemberViewModel
+        : CreateViewModel<TeamMember>
     {
-        // KATALOG DLA DESKTOP + WEB
+        // WSPÓLNY KATALOG DLA DESKTOP + WEB
         private const string SharedUploadsRoot = @"C:\MakeAWishShared\uploads";
 
-        public CreateProductCategoryViewModel()
-            : base("Add Product Category")
+        public CreateTeamMemberViewModel()
+            : base("Add Team Member")
         {
             UploadImageCommand = new RelayCommand(UploadImage);
             DeleteImageCommand = new RelayCommand(DeleteImage);
+        }
+
+        protected override void InitializeNewItem()
+        {
+            item.IsActive = true;
         }
 
         public string Name
@@ -27,11 +32,18 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
             get => item.Name;
             set
             {
-                if (item.Name != value)
-                {
-                    item.Name = value;
-                    OnPropertyChanged(() => Name);
-                }
+                item.Name = value;
+                OnPropertyChanged(() => Name);
+            }
+        }
+
+        public string Description
+        {
+            get => item.Description;
+            set
+            {
+                item.Description = value;
+                OnPropertyChanged(() => Description);
             }
         }
 
@@ -40,22 +52,19 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
             get => item.ImageAlt;
             set
             {
-                if (item.ImageAlt != value)
-                {
-                    item.ImageAlt = value;
-                    OnPropertyChanged(() => ImageAlt);
-                }
+                item.ImageAlt = value;
+                OnPropertyChanged(() => ImageAlt);
             }
         }
 
-        // sciezka WEBOWA (DB + WEB)
-        public string ImagePath
+        // ŚCIEŻKA WEBOWA (DB + WEB)
+        public string ImageUrl
         {
-            get => item.ImagePath;
+            get => item.ImageUrl;
             set
             {
-                item.ImagePath = value;
-                OnPropertyChanged(() => ImagePath);
+                item.ImageUrl = value;
+                OnPropertyChanged(() => ImageUrl);
                 OnPropertyChanged(() => ImagePreview);
             }
         }
@@ -68,12 +77,12 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(ImagePath))
+                if (string.IsNullOrWhiteSpace(ImageUrl))
                     return null;
 
                 try
                 {
-                    var fileName = Path.GetFileName(ImagePath);
+                    var fileName = Path.GetFileName(ImageUrl);
                     var localPath = Path.Combine(SharedUploadsRoot, fileName);
 
                     if (!File.Exists(localPath))
@@ -94,7 +103,6 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
             }
         }
 
-        // upload zdjecia do katalogu wspolnego + zapis sciezki WEBOWEJ do DB
         private void UploadImage()
         {
             var dialog = new OpenFileDialog
@@ -112,13 +120,13 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
 
             File.Copy(dialog.FileName, fullPath, overwrite: true);
 
-            // zapis sciezki WEBOWEJ do DB
-            ImagePath = "/uploads/" + fileName;
+            // zapis ścieżki WEBOWEJ do DB
+            ImageUrl = "/uploads/" + fileName;
         }
 
         private void DeleteImage()
         {
-            ImagePath = null;
+            ImageUrl = null;
         }
     }
 }

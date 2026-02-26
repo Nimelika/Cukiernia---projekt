@@ -8,31 +8,59 @@ using System.Linq;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.ProductCategoryVM
+namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.TeamMemberVM
 {
-    public class UpdateProductCategoryViewModel
-        : UpdateViewModel<ProductCategory>
+    public class UpdateTeamMemberViewModel
+        : UpdateViewModel<TeamMember>
     {
-        // KATALOG DLA DESKTOP + WEB
         private const string SharedUploadsRoot = @"C:\MakeAWishShared\uploads";
 
-        public UpdateProductCategoryViewModel()
-            : base("Update Product Category")
+        public UpdateTeamMemberViewModel()
+            : base("Edit Team Member")
         {
             UploadImageCommand = new RelayCommand(UploadImage);
             DeleteImageCommand = new RelayCommand(DeleteImage);
         }
 
+        // =========================
+        // LOAD EXISTING ENTITY
+        // =========================
+        public override void Load(int id)
+        {
+            item = sharedData_Entities.TeamMembers
+                .FirstOrDefault(t => t.TeamMemberId == id);
+
+            if (item == null)
+                throw new InvalidOperationException("Team member not found.");
+
+            OnPropertyChanged(() => Name);
+            OnPropertyChanged(() => Description);
+            OnPropertyChanged(() => ImageAlt);
+            OnPropertyChanged(() => ImageUrl);
+            OnPropertyChanged(() => IsActive);
+
+        }
+
+        // =========================
+        // FIELDS
+        // =========================
         public string Name
         {
             get => item.Name;
             set
             {
-                if (item.Name != value)
-                {
-                    item.Name = value;
-                    OnPropertyChanged(() => Name);
-                }
+                item.Name = value;
+                OnPropertyChanged(() => Name);
+            }
+        }
+
+        public string Description
+        {
+            get => item.Description;
+            set
+            {
+                item.Description = value;
+                OnPropertyChanged(() => Description);
             }
         }
 
@@ -41,22 +69,31 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
             get => item.ImageAlt;
             set
             {
-                if (item.ImageAlt != value)
-                {
-                    item.ImageAlt = value;
-                    OnPropertyChanged(() => ImageAlt);
-                }
+                item.ImageAlt = value;
+                OnPropertyChanged(() => ImageAlt);
             }
         }
 
-        // sciezka WEBOWA (DB + WEB)
-        public string ImagePath
+        public bool? IsActive
         {
-            get => item.ImagePath;
+            get => item.IsActive;
             set
             {
-                item.ImagePath = value;
-                OnPropertyChanged(() => ImagePath);
+                item.IsActive = value;
+                OnPropertyChanged(() => IsActive);
+            }
+        }
+
+        // =========================
+        // IMAGE
+        // =========================
+        public string ImageUrl
+        {
+            get => item.ImageUrl;
+            set
+            {
+                item.ImageUrl = value;
+                OnPropertyChanged(() => ImageUrl);
                 OnPropertyChanged(() => ImagePreview);
             }
         }
@@ -64,17 +101,16 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
         public ICommand UploadImageCommand { get; }
         public ICommand DeleteImageCommand { get; }
 
-        // Miniatura w DesktopApp
         public BitmapImage ImagePreview
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(ImagePath))
+                if (string.IsNullOrWhiteSpace(ImageUrl))
                     return null;
 
                 try
                 {
-                    var fileName = Path.GetFileName(ImagePath);
+                    var fileName = Path.GetFileName(ImageUrl);
                     var localPath = Path.Combine(SharedUploadsRoot, fileName);
 
                     if (!File.Exists(localPath))
@@ -112,27 +148,26 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
 
             File.Copy(dialog.FileName, fullPath, overwrite: true);
 
-            // zapis sciezki WEBOWEJ do DB
-            ImagePath = "/uploads/" + fileName;
+            ImageUrl = "/uploads/" + fileName;
         }
 
         private void DeleteImage()
         {
-            ImagePath = null;
+            ImageUrl = null;
         }
 
-        public override void Load(int id)
-        {
-            item = sharedData_Entities.ProductCategories
-                .FirstOrDefault(pc => pc.ProductCategoryId == id);
-
-            OnPropertyChanged(() => ImagePreview);
-        }
-
+        // =========================
+        // VALIDATION
+        // =========================
         protected override string ValidateProperty(string propertyName)
         {
-            if (propertyName == nameof(Name) && string.IsNullOrWhiteSpace(Name))
-                return "Name cannot be empty";
+            switch (propertyName)
+            {
+                case nameof(Name):
+                    return string.IsNullOrWhiteSpace(Name)
+                        ? "Name is required."
+                        : null;
+            }
 
             return null;
         }

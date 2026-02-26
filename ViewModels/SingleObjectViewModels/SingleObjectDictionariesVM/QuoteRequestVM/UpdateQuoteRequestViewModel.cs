@@ -2,6 +2,7 @@
 using MakeAWishDB.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.QuoteRequestVM
@@ -14,106 +15,71 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
         {
         }
 
-        public int QuoteId => item.QuoteId;
-
-        public string GuestName
-        {
-            get => item.GuestName;
-            set
-            {
-                if (item.GuestName != value)
-                {
-                    item.GuestName = value;
-                    OnPropertyChanged(() => GuestName);
-                }
-            }
-        }
-
-        public string GuestEmail
-        {
-            get => item.GuestEmail;
-            set
-            {
-                if (item.GuestEmail != value)
-                {
-                    item.GuestEmail = value;
-                    OnPropertyChanged(() => GuestEmail);
-                }
-            }
-        }
-
-        public string Phone
-        {
-            get => item.Phone;
-            set
-            {
-                if (item.Phone != value)
-                {
-                    item.Phone = value;
-                    OnPropertyChanged(() => Phone);
-                }
-            }
-        }
-
-        public string Description
-        {
-            get => item.Description;
-            set
-            {
-                if (item.Description != value)
-                {
-                    item.Description = value;
-                    OnPropertyChanged(() => Description);
-                }
-            }
-        }
-
-        public DateOnly? DesiredDeliveryDate
-        {
-            get => item.DesiredDeliveryDate;
-            set
-            {
-                if (item.DesiredDeliveryDate != value)
-                {
-                    item.DesiredDeliveryDate = value;
-                    OnPropertyChanged(() => DesiredDeliveryDate);
-                }
-            }
-        }
-
-        public int? Status
-        {
-            get => item.Status;
-            set
-            {
-                if (item.Status != value)
-                {
-                    item.Status = value;
-                    OnPropertyChanged(() => Status);
-                }
-            }
-        }
-
-        public bool? IsConvertedToOrder
-        {
-            get => item.IsConvertedToOrder;
-            set
-            {
-                if (item.IsConvertedToOrder != value)
-                {
-                    item.IsConvertedToOrder = value;
-                    OnPropertyChanged(() => IsConvertedToOrder);
-                }
-            }
-        }
-
         public override void Load(int id)
         {
             item = sharedData_Entities.QuoteRequests
                 .Include(q => q.CustomerNavigation)
                 .Include(q => q.StatusNavigation)
                 .FirstOrDefault(q => q.QuoteId == id);
+
+            OnPropertyChanged(() => Status);
         }
+
+        public int QuoteId => item.QuoteId;
+
+        public string GuestName
+        {
+            get => item.GuestName;
+            set { item.GuestName = value; OnPropertyChanged(() => GuestName); }
+        }
+
+        public string GuestEmail
+        {
+            get => item.GuestEmail;
+            set { item.GuestEmail = value; OnPropertyChanged(() => GuestEmail); }
+        }
+
+        public string Phone
+        {
+            get => item.Phone;
+            set { item.Phone = value; OnPropertyChanged(() => Phone); }
+        }
+
+        public string Description
+        {
+            get => item.Description;
+            set { item.Description = value; OnPropertyChanged(() => Description); }
+        }
+
+        public DateOnly? DesiredDeliveryDate
+        {
+            get => item.DesiredDeliveryDate;
+            set { item.DesiredDeliveryDate = value; OnPropertyChanged(() => DesiredDeliveryDate); }
+        }
+
+        // ID STATUSU — bindowany z ComboBox
+        public int? Status
+        {
+            get => item.Status;
+            set
+            {
+                item.Status = value;
+                OnPropertyChanged(() => Status);
+            }
+        }
+
+        public bool? IsConvertedToOrder
+        {
+            get => item.IsConvertedToOrder;
+            set { item.IsConvertedToOrder = value; OnPropertyChanged(() => IsConvertedToOrder); }
+        }
+
+       
+        public ObservableCollection<Status> StatusItems =>
+            new(sharedData_Entities.Statuses
+                .Where(s => s.IsActive == true)
+                .OrderBy(s => s.Name)
+                .ToList());
 
         protected override string ValidateProperty(string propertyName)
         {
@@ -129,4 +95,3 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
         }
     }
 }
-

@@ -83,7 +83,7 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
             }
         }
 
-        // 🔒 READ‑ONLY — liczone w bazie przez trigger
+        // READ‑ONLY — liczone w bazie przez trigger
         public decimal TotalNet => item.TotalNet;
         public decimal? TotalVat => item.TotalVat;
         public decimal? TotalGross => item.TotalGross;

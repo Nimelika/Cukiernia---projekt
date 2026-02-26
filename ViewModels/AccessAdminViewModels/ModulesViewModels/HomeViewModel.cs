@@ -1,27 +1,30 @@
 ﻿using DesktopApp.ViewModels.AccessAdminViewModels.AuthorizationViewModels;
-using GalaSoft.MvvmLight;
-using System;
-using System.Collections.Generic;
+using DesktopApp.ViewModels.AbstractViewModels;
+using MakeAWishDB.Context;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesktopApp.ViewModels.AccessAdminViewModels.ModulesViewModels
-
-    {
+{
     public class HomeViewModel : WorkspaceViewModel
     {
         private readonly CurrentUserService _currentUser;
+        private readonly SharedData_Entities _context;
 
         public HomeViewModel(CurrentUserService currentUser)
         {
             _currentUser = currentUser;
+            _context = new SharedData_Entities();
+
             DisplayName = "Home";
 
             LoadPermissions();
+            LoadDashboardData();
         }
 
+        
+        // WELCOME
+        
         public string WelcomeText
         {
             get
@@ -39,23 +42,39 @@ namespace DesktopApp.ViewModels.AccessAdminViewModels.ModulesViewModels
             }
         }
 
+        
+        // DASHBOARD COUNTERS
+      
+        public int NewOrdersCount { get; private set; }
+        public int NewQuoteRequestsCount { get; private set; }
 
-        //kolekcja uprawnien do modulow, ktora bedzie wyswietlana w UI
+        private void LoadDashboardData()
+        {
+            NewOrdersCount = _context.ViewNewOrders.Count();
+            NewQuoteRequestsCount = _context.ViewNewQuoteRequests.Count();
+
+            OnPropertyChanged(() => NewOrdersCount);
+            OnPropertyChanged(() => NewQuoteRequestsCount);
+        }
+
+        
+        // MODULE PERMISSIONS
+        
         public ObservableCollection<ModulePermissionViewModel> Permissions { get; }
-    = new ObservableCollection<ModulePermissionViewModel>();
+            = new ObservableCollection<ModulePermissionViewModel>();
 
         private void LoadPermissions()
         {
             var allModules = new[]
             {
-        ("HOME", "Home"),
-        ("PRODUCTS", "Products"),
-        ("PRODUCTION", "Production"),
-        ("FINANCE", "Finance"),
-        ("ADMIN", "Administration"),
-        ("SETTINGS", "Settings"),
-        ("WEBPAGE", "Webpage")
-    };
+                ("HOME", "Home"),
+                ("PRODUCTS", "Products"),
+                ("PRODUCTION", "Production"),
+                ("FINANCE", "Finance"),
+                ("ADMIN", "Administration"),
+                ("SETTINGS", "Settings"),
+                ("WEBPAGE", "Webpage")
+            };
 
             Permissions.Clear();
 
@@ -68,7 +87,6 @@ namespace DesktopApp.ViewModels.AccessAdminViewModels.ModulesViewModels
                 ));
             }
         }
-
     }
 }
 

@@ -1,41 +1,44 @@
-﻿using DesktopApp.ViewModels.AbstractViewModels;
-using MakeAWishDB.Entities;
-using System.IO;
-using System.Linq;
-using System.Windows.Media.Imaging;
-using DesktopApp.ViewModels.AbstractViewModels;
-using MakeAWishDB.Entities;
+﻿using MakeAWishDB.Entities;
 using System;
 using System.IO;
 using System.Windows.Media.Imaging;
 
-namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.ProductCategoryVM
+namespace DesktopApp.ViewModels.SingleObjectViewModels.DisplayOnlyVM
 {
-    public class DisplayProductCategoryViewModel
-        : DisplayViewModel<ProductCategory>
+    public class MainPageArticleViewModel
     {
-        // KATALOG DLA DESKTOP + WEB
         private const string SharedUploadsRoot = @"C:\MakeAWishShared\uploads";
 
-        public DisplayProductCategoryViewModel()
-            : base("Display Product Category")
+        public MainPageArticle Item { get; }
+
+        public MainPageArticleViewModel(MainPageArticle item)
         {
+            Item = item;
         }
 
-        public string CategoryName => item?.Name;
-        public string ImageAlt => item?.ImageAlt;
+        // Pozycja na liście (np. numer wiersza)
+        public int Position { get; set; }
 
-        // LADOWANIE OBRAZU
+        public int ArticleId => Item.ArticleId;
+        public string Title => Item.Title;
+        public string ImageAlt => Item.ImageAlt;
+        public DateTime? PublishDate => Item.PublishDate;
+        public bool? IsPublished => Item.IsPublished;
+        public bool IsActive => Item.IsActive;
+
+        // =========================
+        // MINIATURA (DESKTOP APP)
+        // =========================
         public BitmapImage ImagePreview
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(item?.ImagePath))
+                if (string.IsNullOrWhiteSpace(Item.ImageUrl))
                     return null;
 
                 try
                 {
-                    var fileName = Path.GetFileName(item.ImagePath);
+                    var fileName = Path.GetFileName(Item.ImageUrl);
                     var localPath = Path.Combine(SharedUploadsRoot, fileName);
 
                     if (!File.Exists(localPath))
@@ -57,4 +60,3 @@ namespace DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesV
         }
     }
 }
-
