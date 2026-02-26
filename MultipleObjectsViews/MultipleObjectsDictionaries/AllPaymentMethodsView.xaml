@@ -1,0 +1,47 @@
+<local:AllViewBase
+    x:Class="DesktopApp.Views.MulitipleObjectsViews.MulitipleObjectsDictionaries.AllPaymentMethodsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DesktopApp.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/TabStyleResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Style="{StaticResource MainBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1" Style="{StaticResource IvoryBackground}">
+            <DataGrid
+                AutoGenerateColumns="False"
+                ItemsSource="{Binding List}"
+                Style="{StaticResource DataGridStyle}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Width="Auto"
+                        Binding="{Binding PaymentMethodId}"
+                        Header="Id" />
+                    <DataGridTextColumn
+                        Width="Auto"
+                        Binding="{Binding Name}"
+                        Header="Payment Method" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</local:AllViewBase>
+
+
+

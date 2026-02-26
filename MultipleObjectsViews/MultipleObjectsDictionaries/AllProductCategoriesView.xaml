@@ -1,0 +1,103 @@
+<local:AllViewBase
+    x:Class="DesktopApp.Views.MulitipleObjectsViews.MulitipleObjectsDictionaries.AllProductCategoriesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DesktopApp.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/TabStyleResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+
+
+            <DataGrid
+                AlternationCount="1000"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                ColumnHeaderStyle="{StaticResource StandardDataGridHeaderStyle}"
+                ItemsSource="{Binding List}"
+                SelectedItem="{Binding SelectedProductCategory, Mode=TwoWay}">
+
+                <DataGrid.Columns>
+
+                    <!--  Position  -->
+                    <DataGridTextColumn
+                        Width="SizeToHeader"
+                        Binding="{Binding Position}"
+                        ElementStyle="{StaticResource StandardTextColumnStyle}"
+                        Header="Position" />
+
+                    <!--  Product Category Name  -->
+                    <DataGridTextColumn
+                        Width="Auto"
+                        Binding="{Binding Name}"
+                        ElementStyle="{StaticResource StandardTextColumnStyle}"
+                        Header="Name" />
+
+                    <!--  Image Alternative Text  -->
+                    <DataGridTextColumn
+                        Width="Auto"
+                        Binding="{Binding ImageAlt}"
+                        ElementStyle="{StaticResource StandardTextColumnStyle}"
+                        Header="Image Alternative Text" />
+
+                    <!--  Image  -->
+                    <DataGridTemplateColumn Width="Auto" Header="Image">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image
+                                    Width="100"
+                                    Height="100"
+                                    Source="{Binding ImagePreview}"
+                                    Stretch="Uniform" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--  Actions  -->
+                    <DataGridTemplateColumn Width="Auto" Header="Actions">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Style="{StaticResource ActionsStackPanelStyle}">
+                                    <Button
+                                        Command="{Binding DataContext.DetailsCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"
+                                        Content="Details"
+                                        Style="{StaticResource ActionsStackPanelButtonStyle}" />
+                                    <Button
+                                        Command="{Binding DataContext.UpdateCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"
+                                        Content="Update"
+                                        Style="{StaticResource ActionsStackPanelButtonStyle}" />
+                                    <Button
+                                        Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"
+                                        Content="Delete"
+                                        Style="{StaticResource ActionsStackPanelButtonStyle}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</local:AllViewBase>
