@@ -1,15 +1,19 @@
-﻿@{
-    ViewData["Title"] = "Order confirmation";
-}
-<div class="parallax-container hero">
+﻿@model PortalWWW.Models.PageHeroViewModel
 
+@{
+    ViewData["Title"] = Model.Header;
+}
+
+<div class="parallax-container hero">
     <div class="parallax">
-        <img src="~/img/2150996456.jpg" />
+        <img src="@Url.Content(Model.HeroImagePath ?? "~/img/default-hero.jpg")"
+             alt="@Model.HeroImageAlt" />
     </div>
 </div>
+
 <div class="container center-align" style="margin-top: 80px;">
     <h1 class="amber-text text-darken-2">
-        Thank you for your order!
+        @Model.Header
     </h1>
 
     <h5 class="blue-grey-text text-darken-3" style="margin-bottom: 40px;">

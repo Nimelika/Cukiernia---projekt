@@ -1,110 +1,108 @@
-﻿@{
-    ViewData["Title"] = "KONTAKT";
+﻿@model PortalWWW.Models.ContactPageViewModel
+
+@{
+    ViewData["Title"] = Model.Header;
 }
 
 <div class="parallax-container hero">
-
     <div class="parallax">
-        <img src="~/img/kontakt3.jpg" />
+        <img src="@Url.Content(Model.HeroImagePath ?? "~/img/default-hero.jpg")"
+             alt="@Model.HeroImageAlt" />
     </div>
 </div>
 
+<h1 class="center blue-grey-text text-darken-4">@Model.Header</h1>
+@if (TempData["ContactSuccess"] != null)
+{
+    <div class="card-panel green lighten-4 green-text text-darken-4 center">
+        <strong>@TempData["ContactSuccess"]</strong>
+    </div>
+}
 
-<h1 class="center blue-grey-text text-darken-4">@ViewData["Title"]</h1>
+
 <div class="container">
     <div class="row">
-        <section id="info">
-            <div class="col s12 l6">
-                <h3>Siedziba Główna</h3>
-               
-                    <div>
-                        <h5>
-                             ul. Miła 135
-                              <br />
-                            32-500 Chrzanów
-                            <br />
 
-                            tel. 32-621-21-995
-                            <br />
+        <!-- SHOP INFO -->
+        <div class="col s12 l6">
+            <h5>Head Office</h5>
 
-                            e-mail: cukiernia@makeawish.pl
-                        <br />
-                        </h5>
+            <p>
+                @Model.StreetAddress<br />
+                @Model.PostalCode @Model.City<br />
+                Phone: @Model.PhoneNumber<br />
+                Email: @Model.Mail
+            </p>
+
+            <iframe src="@Model.GoogleMapsUrl"
+                    width="100%" height="300"
+                    style="border:0;"
+                    loading="lazy"></iframe>
+        </div>
+
+        <!-- CONTACT FORM -->
+        <div class="col s12 l6">
+            <form asp-action="Contact" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="card-panel amber lighten-5">
+
+                    <h5>Contact form</h5>
+
+                    <div class="input-field">
+                        <input asp-for="FullName" />
+                        <label asp-for="FullName">Full name</label>
+                        @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "red-text" })
                     </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2557.6833974560477!2d19.3794283768143!3d50.12964611041017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716ebfdccbf4e55%3A0x8ad4f7a57399a926!2zTWnFgmEgMTM1LCAzMi01MDAgQ2hyemFuw7N3!5e0!3m2!1spl!2spl!4v1741272253905!5m2!1spl!2spl" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div class="col s12 l6 ">
-                <h3>Formularz Kontaktowy</h3>
-                <h5>
-                    Imię i nazwisko
-                    <br />
-                    Adres e-mail
-                    <br />
-                    Numer telefonu
-                    <br />
-                    Temat
-                    <br />
-                    Treść wiadomości
-                    <br />
-                    
-            </div>
-   </section>
-   </div>
- 
-    <hr />
-    @* <div class="row">
-        <div class="col-md-4">
-             <form asp-action="Order">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                
-                <div class="form-group">
-                    <label asp-for="Annotation" class="control-label"></label>
-                    <input asp-for="Annotation" class="form-control" />
-                    <span asp-validation-for="Annotation" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="FirstName" class="control-label"></label>
-                    <input asp-for="FirstName" class="form-control" />
-                    <span asp-validation-for="FirstName" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="LastName" class="control-label"></label>
-                    <input asp-for="LastName" class="form-control" />
-                    <span asp-validation-for="LastName" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Street" class="control-label"></label>
-                    <input asp-for="Street" class="form-control" />
-                    <span asp-validation-for="Street" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="PhoneNumber" class="control-label"></label>
-                    <input asp-for="PhoneNumber" class="form-control" />
-                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                
-                <div class="form-group">
-                    <label asp-for="IdCity" class="control-label"></label>
-                    <select asp-for="IdCity" style="display:inline-flex" class="form-control" asp-items="ViewBag.IdCity"></select>
-                </div>
-                <div class="form-group">
-                    <label asp-for="IdPostalCode" class="control-label"></label>
-                    <select asp-for="IdPostalCode" style="display:inline-flex" class="form-control" asp-items="ViewBag.IdPostalCode"></select>
-                </div>
-                
-                <div class="form-group">
-                    <input type="submit" value="Zamów" class="btn btn-primary" />
+
+                    <div class="input-field">
+                        <input asp-for="Email" />
+                        <label asp-for="Email">Email</label>
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "red-text" })
+                    </div>
+
+                    <div class="input-field">
+                        <input asp-for="Phone" />
+                        <label asp-for="Phone">Phone</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input asp-for="Subject" />
+                        <label asp-for="Subject">Subject</label>
+                        @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "red-text" })
+                    </div>
+
+                    <div class="input-field">
+                        <textarea asp-for="MessageText" class="materialize-textarea"></textarea>
+                        <label asp-for="MessageText">Message</label>
+                        @Html.ValidationMessageFor(m => m.MessageText, "", new { @class = "red-text" })
+                    </div>
+
+                    <p>
+                        <label>
+                            <input type="checkbox" asp-for="AcceptRodo" />
+                            <span>I agree to the privacy policy</span>
+                        </label>
+                        @Html.ValidationMessageFor(m => m.AcceptRodo, "", new { @class = "red-text" })
+                    </p>
+
+                    <p>
+                        <label>
+                            <input type="checkbox" asp-for="AcceptTerms" />
+                            <span>I accept the terms and conditions</span>
+                        </label>
+                        @Html.ValidationMessageFor(m => m.AcceptTerms, "", new { @class = "red-text" })
+                    </p>
+
+                    <div class="center">
+                        <button type="submit" class="btn blue-grey darken-3">
+                            Send message
+                        </button>
+                    </div>
+
                 </div>
             </form>
         </div>
-    </div>
 
-    <div>
-        <a class="btn btn-primary btn-xl" asp-action="Index">Wróć do koszyka</a>
-                </div>*@
+    </div>
 </div>

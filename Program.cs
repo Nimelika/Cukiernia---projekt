@@ -1,6 +1,8 @@
 using MakeAWishDB.Context;
 using Microsoft.EntityFrameworkCore;
 using BusinessLogic.Services.Shopping;
+using Microsoft.Extensions.FileProviders;
+using PortalWWW.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,7 @@ builder.Services
 // Services
 builder.Services.AddScoped<QuoteRequestService>();
 builder.Services.AddScoped<CatalogOrderService>();
+builder.Services.AddScoped<PageHeroProvider>();
 
 var app = builder.Build();
 
@@ -38,7 +41,16 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// PLIKI STATYCZNE (wwwroot)
 app.UseStaticFiles();
+
+//KATALOG z grafikami (DESKTOP + WEB)
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(@"C:\MakeAWishShared\uploads"),
+    RequestPath = "/uploads"
+});
 
 app.UseRouting();
 app.UseAuthorization();
@@ -49,4 +61,3 @@ app.MapControllerRoute(
 );
 
 app.Run();
-

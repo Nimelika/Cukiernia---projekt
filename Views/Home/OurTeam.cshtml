@@ -1,152 +1,52 @@
-﻿@{
-    ViewData["Title"] = "NASZ ZESPÓŁ";
+﻿@model PortalWWW.Models.OurTeamPageViewModel
+
+@{
+    ViewData["Title"] = Model.Header;
 }
 
 <div class="parallax-container hero">
-
     <div class="parallax">
-        <img src="~/img/zaspol.jpg" />
+        <img src="@Url.Content(Model.HeroImagePath ?? "~/img/default-hero.jpg")"
+             alt="@Model.HeroImageAlt" />
     </div>
 </div>
-<h1 class="center blue-grey-text text-darken-4">@ViewData["Title"]</h1>
-<div class="text-center">
-    <div class="container center">
-        <div class="row">
-            <div class="col s12 m6 offset-m1">
-                <div class="card-panel amber lighten-3">
-                    <div class="row valign-wrapper">
-                        <div class="col s12 l6">
-							<img src="~/img/daro.jpg" alt="Darek" class="circle responsive-img" />
-                        </div>
-                        <div class="col s12 l6">
-                            <h2 class="blue-grey-text text-darken-4">Darek</h2>
-                            <p>Współzałożyciel / Maestro ciasta drożdżowego</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m6 offset-m5">
-                <div class="card-panel grey darken-3">
-                    <div class="row valign-wrapper">
-                        <div class="col s12 l6">
-                            <img src="~/img/oskar.jpg" alt="Oskar" class="circle responsive-img" />
-                        </div>
-                        <div class="col s12 l6">
-                            <h2 class="amber-text text-lighten-4">Oskar</h2>
-                            <p class="amber-text text-lighten-4">Współzałożyciel / Wirtuoz serników</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m6 offset-m1">
-                        <div class="card-panel amber lighten-3">
-                    <div class="row valign-wrapper">
-            <div class="col s12 l6">
-                <img src="~/img/kasia.jpg" alt="Kasia" class="circle responsive-img" />
-            </div>
-            <div class="col s12 l6">
-                <h2 class="blue-grey-text text-darken-4">Kasia</h2>
-                <p>Kierownik asystentów obsługi sprzedaży</p>
-            </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m6 offset-m5">
-                <div class="card-panel grey darken-3">
-                    <div class="row valign-wrapper">
-                        <div class="col s12 l6">
-                            <img src="~/img/ela.jpg" alt="Ela" class="circle responsive-img" />
-                        </div>
-                        <div class="col s12 l6">
-                            <h2 class="amber-text text-lighten-4">Ela</h2>
-                            <p class="amber-text text-lighten-4">Szefowa zmiany dziennej</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m6 offset-m1">
-                <div class="card-panel amber lighten-3">
-                    <div class="row valign-wrapper">
-                        <div class="col s12 l6">
-							<img src="~/img/dominik.jpg" alt="Dominik" class="circle responsive-img" />
-                        </div>
-                        <div class="col s12 l6">
-                            <h2 class="blue-grey-text text-darken-4">Dominik</h2>
-                            <p>Mistrz ciasta francuskiego</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m6 offset-m5">
-                <div class="card-panel grey darken-3">
-                    <div class="row valign-wrapper">
-                        <div class="col s12 l6">
-							<img src="~/img/marcin.jpg" alt="Marcin" class="circle responsive-img" />
-                        </div>
-                        <div class="col s12 l6">
-                            <h2 class="amber-text text-lighten-4">Marcin</h2>
-                            <p class="amber-text text-lighten-4">Ekspert ds. tortów</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m6 offset-m1">
-                <div class="card-panel amber lighten-3">
-                    <div class="row valign-wrapper">
-                        <div class="col s12 l6">
-							<img src="~/img/lena.jpg" alt="Lena" class="circle responsive-img" />
-                        </div>
-                        <div class="col s12 l6">
-                            <h2 class="blue-grey-text text-darken-4">Lena</h2>
-                            <p>Specjalistka z zakresu zdobiennictwa</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m6 offset-m5">
-                <div class="card-panel grey darken-3">
-                    <div class="row valign-wrapper">
-                        <div class="col s12 l6">
-							<img src="~/img/amelia.jpg" alt="Amelia" class="circle responsive-img" />
-                        </div>
-                        <div class="col s12 l6">
-                            <h2 class="amber-text text-lighten-4">Amelia</h2>
-                            <p class="amber-text text-lighten-4">Manager ds. administracyjnych</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m6 offset-m1">
-                <div class="card-panel amber lighten-3">
-                    <div class="row valign-wrapper">
-                        <div class="col s12 l6">
-							<img src="~/img/matylda.jpg" alt="Matylda" class="circle responsive-img" />
-                        </div>
-                        <div class="col s12 l6">
-                            <h2 class="blue-grey-text text-darken-4">Matylda</h2>
-                            <p>Kierownik sklepu firmowego</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
+<h1 class="center blue-grey-text text-darken-4">
+    @Model.Header
+</h1>
 
-    </div>
+<div class="container center">
+
+    @for (int i = 0; i < Model.Members.Count; i++)
+    {
+        var member = Model.Members[i];
+        var isEven = i % 2 == 0;
+
+        <div class="row">
+            <div class="col s12 m6 @(isEven ? "offset-m1" : "offset-m5")">
+                <div class="card-panel @(isEven ? "amber lighten-3" : "grey darken-3")">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s12 l6">
+                            <img src="@Url.Content(member.ImageUrl ?? "~/img/default-person.jpg")"
+                                 alt="@member.ImageAlt"
+                                 class="circle responsive-img" />
+                        </div>
+
+                        <div class="col s12 l6">
+                            <h2 class="@(isEven ? "blue-grey-text text-darken-4" : "amber-text text-lighten-4")">
+                                @member.Name
+                            </h2>
+
+                            <p class="@(isEven ? "" : "amber-text text-lighten-4")">
+                                @member.Description
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
 </div>

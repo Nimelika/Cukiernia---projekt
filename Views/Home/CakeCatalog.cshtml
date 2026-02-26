@@ -1,0 +1,104 @@
+﻿@model PortalWWW.Models.CakeCatalogPageViewModel
+
+@{
+    ViewData["Title"] = Model.Header ?? "Cake Catalog";
+}
+
+<!-- HERO -->
+<div class="parallax-container hero">
+    <div class="parallax">
+        <img src="@Url.Content(Model.HeroImagePath ?? "~/img/default-hero.jpg")"
+             alt="@Model.HeroImageAlt" />
+    </div>
+</div>
+
+<h1 class="center blue-grey-text text-darken-4">
+    @ViewData["Title"]
+</h1>
+
+<section class="container section">
+    @foreach (var cake in Model.Cakes)
+    {
+        <div class="row cake-item amber lighten-5">
+
+            <!-- IMAGE -->
+            <div class="col s12 l5">
+                <img src="@cake.ImageUrl"
+                     alt="@cake.ImageAlt"
+                     class="responsive-img cake-image" />
+            </div>
+
+            <!-- CONTENT -->
+            <div class="col s12 l6 offset-l1 cake-content">
+
+                <h4 class="blue-grey-text text-darken-4">
+                    @cake.Name
+                </h4>
+
+                <p class="cake-description">
+                    @cake.Description
+                </p>
+
+                <p><strong>Filling:</strong> @cake.FillingName</p>
+
+                <p class="cake-prices">
+                    @if (cake.PriceSmall.HasValue)
+                    {
+                        <span>Small: from @cake.PriceSmall PLN<br /></span>
+                    }
+                    @if (cake.PriceMedium.HasValue)
+                    {
+                        <span>Medium: from @cake.PriceMedium PLN<br /></span>
+                    }
+                    @if (cake.PriceLarge.HasValue)
+                    {
+                        <span>Large: from @cake.PriceLarge PLN</span>
+                    }
+                </p>
+
+                <div class="cake-tags">
+                    @if (cake.Vegan == true)
+                    {
+                        <span class="chip green lighten-3">Vegan</span>
+                    }
+                    @if (cake.WithNuts == true)
+                    {
+                        <span class="chip brown lighten-3">Nuts</span>
+                    }
+                    @if (cake.WithFruits == true)
+                    {
+                        <span class="chip lime lighten-3">Fruits</span>
+                    }
+                    @if (cake.WithAlcohol == true)
+                    {
+                        <span class="chip red lighten-3">Alcohol</span>
+                    }
+                    @if (cake.LowSugar == true)
+                    {
+                        <span class="chip indigo lighten-3">Low Sugar</span>
+                    }
+                    @if (cake.NoSugar == true)
+                    {
+                        <span class="chip grey lighten-2">No Sugar</span>
+                    }
+                    @if (cake.WeddingOffer == true)
+                    {
+                        <span class="chip blue lighten-3">Wedding Offer</span>
+                    }
+                    @if (cake.ChildrenOffer == true)
+                    {
+                        <span class="chip pink lighten-3">Children's Choice</span>
+                    }
+                </div>
+
+                <a href="@Url.Action("OrderEntry", "Order")"
+                   class="waves-effect waves-light btn amber darken-3 pulse cake-order-btn">
+                    <i class="material-icons right">shopping_cart</i>
+                    Order this cake
+                </a>
+
+            </div>
+        </div>
+    }
+</section>
+

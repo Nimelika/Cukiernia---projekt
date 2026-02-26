@@ -1,0 +1,15 @@
+﻿@model List<MakeAWishDB.Entities.CelebrationCake>
+
+<div class="container center center-align" style="margin-bottom:30px;">
+    <h3 class="blue-grey-text text-darken-4">OUR RECOMMENDATION</h3>
+
+    <div class="carousel">
+        @foreach (var cake in Model)
+        {
+            <a class="carousel-item" href="#!">
+                <img src="@cake.ImageUrl" alt="@cake.ImageAlt" />
+            </a>
+        }
+    </div>
+</div>
+

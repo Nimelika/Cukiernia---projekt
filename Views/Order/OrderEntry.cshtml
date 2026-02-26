@@ -1,13 +1,13 @@
 ﻿@model PortalWWW.Models.OrderEntryViewModel
 
 @{
-    ViewData["Title"] = "Order a Cake";
+    ViewData["Title"] = Model.Header;
 }
 
 <div class="parallax-container hero">
-
     <div class="parallax">
-        <img src="~/img/2150996456.jpg" />
+        <img src="@Url.Content(Model.HeroImagePath ?? "~/img/default-hero.jpg")"
+             alt="@Model.HeroImageAlt" />
     </div>
 </div>
 

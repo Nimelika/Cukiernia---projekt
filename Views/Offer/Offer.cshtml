@@ -1,0 +1,65 @@
+﻿@model PortalWWW.Models.OfferPageViewModel
+
+
+@{
+    ViewData["Title"] = "Offer";
+}
+
+<div class="parallax-container hero">
+    <div class="parallax">
+        <img src="@Url.Content(Model.HeroImagePath ?? "~/img/default-hero.jpg")"
+             alt="@Model.HeroImageAlt" />
+    </div>
+</div>
+<h1 class="center blue-grey-text text-darken-4">
+    @ViewData["Title"]
+</h1>
+
+<section class="container section">
+    <div class="row">
+        @foreach (var category in Model.Categories)
+
+        {
+            <div class="col s12 m6 l6">
+                <div class="card large amber lighten-5 offer-card">
+
+                    <!-- IMAGE -->
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator"
+                             src="@Url.Content(category.ImagePath)"
+                             alt="@category.ImageAlt" />
+                    </div>
+
+                    <!-- CONTENT -->
+                    <div class="card-content">
+                        <span class="card-title activator blue-grey-text text-darken-4">
+                            @category.CategoryName
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                        <p class="grey-text text-darken-1">
+                            Click to see available products
+                        </p>
+                    </div>
+
+                    <!-- REVEAL -->
+                    <div class="card-reveal amber lighten-5">
+                        <span class="card-title blue-grey-text text-darken-4">
+                            @category.CategoryName
+                            <i class="material-icons right">close</i>
+                        </span>
+
+                        <ul class="offer-products">
+                            @foreach (var product in category.Products)
+                            {
+                                <li>@product</li>
+                            }
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+

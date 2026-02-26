@@ -8,7 +8,7 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="~/lib/materialize/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="~/lib/materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <!--<link href="~/lib/materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />-->
     <link href="~/lib/fontello/css/fontello.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,13 +48,14 @@
             <div class="nav-wrapper">
                 <ul class="hide-on-med-and-down">
                     <!--overwriting default text colour does not work in nav, needed to be set to each <li> in <a> separately-->
-                    <li>@Html.ActionLink("O NAS", "WhoWeAre", "Home")</li>
+                    <li>@Html.ActionLink("WHO WE ARE", "WhoWeAre", "Home")</li>
                     @*<li><a href="#collection">PRODUKTY</a></li>*@
-                    <li>@Html.ActionLink("OFERTA", "Index", "Product")</li>
-                    <li>@Html.ActionLink("NASZ ZESPÓŁ", "OurTeam", "Home")</li>
+                    <li>@Html.ActionLink("OFFER", "Offer", "Offer")</li>
+                    <li>@Html.ActionLink("OUR TEAM", "OurTeam", "Home")</li>
                     @* <li>@Html.ActionLink("DOŁĄCZ DO NAS","JobOffer","Home")</li>*@
-                    <li>@Html.ActionLink("NASZE SKLEPY", "OurShops", "Home")</li>
-                    <li>@Html.ActionLink("KONTAKT", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("OUR SHOPS", "OurShops", "Home")</li>
+                    <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("CAKE CATALOG", "CakeCatalog", "Home")</li>
 
                     <li>
                         <a href="@Url.Action("OrderEntry", "Order")"
@@ -70,14 +71,14 @@
         <!--Sprawdzić czemu nie działa + dodać dropdown menu jak już będzie działać-->
         <ul class="sidenav" id="mobile-list">
             @*@<li><a href="#">WYSZUKIWANIE</a></li>*@
-            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("O NAS", "WhoWeAre", "Home")</a></li>
-            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("OFERTA", "Index", "Product")</a></li>
-            <li><a class="blue-grey-text text-darken-4">@Html.ActionLink("NASZ ZESPÓŁ", "OurTeam", "Home")</a></li>
+            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("WHO WE ARE", "WhoWeAre", "Home")</a></li>
+            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("OFFER", "Offer", "Offer")</a></li>
+            <li><a class="blue-grey-text text-darken-4">@Html.ActionLink("OUR TEAM", "OurTeam", "Home")</a></li>
             @*<li><a class="blue-grey-text text-darken-4" href="#collection">PRODUKTY</a></li>*@
-            <li>@Html.ActionLink("PRODUKTY", "Index", "Product")</li>
             @*<li><a class="blue-grey-text text-darken-4" @Html.ActionLink("DOŁĄCZ DO NAS","JobOffer","Home")</a></li>*@
-            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("NASZE SKLEPY", "OurShops", "Home")</a></li>
-            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("KONTAKT", "Contact", "Home")</a></li>
+            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("OUR SHOPS", "OurShops", "Home")</a></li>
+            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("CONTACT", "Contact", "Home")</a></li>
+            <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("CAKE CATALOG", "CakeCatalog", "Home")</a></li>
             <li><a class="blue-grey-text text-darken-4" @Html.ActionLink("ORDER A CAKE", "OrderEntry", "Order")</a></li>
 
 
@@ -88,88 +89,16 @@
         <main>
             @RenderBody()
 
-            <div class="container center center-align">
-                <h3 class="blue-grey-text text-darken-4">NAJCZĘŚCIEJ WYBIERANE</h3>
-                <div class="row">
-                    <div class="col s12 m6 l3">
-                        <div class="card large">
-                            <div class="card-image">
-                                <img src="" alt="Tu będzie zdjęcie" />
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title">Nazwa produktu</span>
-                                <p>cena</p>
-                                <a href="#" class="btn-floating amber darken-3 pulse"><i class="material-icons right">shopping_cart</i></a>
-                            </div>
-                            <div class="card-action">
-                                <a class="amber-text text-darken-3" href="#">SZCZEGÓŁY</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 l3">
-                        <div class="card large">
-                            <div class="card-image">
-                                <img src="https://media-hosting.imagekit.io//b24d3e9501cb4085/3030%20(1).jpg?Expires=1835463429&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Qs59YlSFEJd3TNXuviZlnJi59Bob6gmFJCpJLCTonUNbRee1CWMk0K1rskZH-EPcokctaeMcYDgZKLbIj4b2NSrQGy52rKtWTfLx0IooFcQq7gQwy637VelycW3owiiNrPBrAeiBv8haBd0cySvMVBlopsadPJtIkbcQ1-Ndtld9AKGNRbiiD0Z4VDX0A001uTxfVc78DTr1tfAzKmf6xSUDe15m~YPajEMfSXiKCX00P3CvurftkgGbkTO-Lf~tZCc0bwHVbjskfP2KnCj7~2UXaw5GRQc3dfuQc2aqNgQk-ueRWtbkqmM7-Lu~X5Kdh8V-X0oMrDOfTAfD5kwBUw" alt="Tu będzie zdjęcie" />
-                                <a href="#" class="btn-floating teal lighten-1 pulse"><i class="material-icons right">shopping_cart</i></a>
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title">Nazwa produktu</span>
-                                <p>cena</p>
-                                <a href="#" class="btn-floating amber darken-3 pulse"><i class="material-icons right">shopping_cart</i></a>
-                            </div>
-                            <div class="card-action">
-                                <a class="amber-text text-darken-3 href="#">SZCZEGÓŁY</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 l3">
-                        <div class="card large">
-                            <div class="card-image">
-                                <img src="https://i.postimg.cc/rmQRwtm2/3236-1.jpg" alt="Tu będzie zdjęcie" />
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title">Nazwa produktu</span>
-                                <p>cena</p>
-                                <a href="#" class="btn-floating amber darken-3 pulse"><i class="material-icons right">shopping_cart</i></a>
-                            </div>
-                            <div class="card-action">
-                                <a class="amber-text text-darken-3" href="#">SZCZEGÓŁY</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 l3">
-                        <div class="card large">
-                            <div class="card-image">
-                                <img src="https://i.postimg.cc/2SQ65Bc9/3030-1.jpg" alt="Tu będzie zdjęcie" />
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title">Tort Mascarpone</span>
-                                <p>od 190 PLN</p>
-                                <a href="#" class="btn-floating amber darken-3 pulse"><i class="material-icons right">shopping_cart</i></a>
-                            </div>
+            @await Component.InvokeAsync("BestSellers")
 
-                            <div class="card-action">
-                                <a class="amber-text text-darken-3" href="#">SZCZEGÓŁY</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container center center-align" style="margin-bottom:30px;">
-                    <h3 class="blue-grey-text text-darken-4">NASZE SPECJAŁY</h3>
-                    <div class="carousel">
-                        <a class="carousel-item " href="#!"><img src="https://ptys.pl/wp-content/uploads/2024/05/ptys_karta-duzej-rodziny-300x282.png "></a>
-                        <a class="carousel-item" href="#!"><img src="https://ptys.pl/wp-content/uploads/2024/05/ptys_karta-duzej-rodziny-300x282.png"></a>
-                        <a class="carousel-item" href="#!"><img src="https://ptys.pl/wp-content/uploads/2024/05/ptys_karta-duzej-rodziny-300x282.png"></a>
-                        <a class="carousel-item" href="#!"><img src="https://ptys.pl/wp-content/uploads/2024/05/ptys_karta-duzej-rodziny-300x282.png"></a>
-                        <a class="carousel-item" href="#!"><img src="https://ptys.pl/wp-content/uploads/2024/05/ptys_karta-duzej-rodziny-300x282.png"></a>
-                    </div>
-                </div>
+                @await Component.InvokeAsync("SpecialCakesCarousel")
+
             </div>
         </main>
     </div>
     <footer class="page-footer grey darken-3">
         <div class="container center-align">
-            <h3 class="amber-text text-lighten-5">NASZE PROFILE</h3>
+            <h3 class="amber-text text-lighten-5">FOLLOW US</h3>
             <div class="row">
 
                 <div class="col s12 m6 l4">
@@ -188,37 +117,25 @@
         <div class="container">
             <div class="row">
                 <section id="info">
-                    <div class="col s12 m6 l3">
-                        <h5 style="padding:15px">Siedziba Główna</h5>
-                        <nav class="grey darken-3" style="box-shadow:none">
-                            <div>
-                                <ul>
-                                    <li>32-500 Chrzanów ul. Miła 135</li>
-                                    <br />
-                                    <li>tel. 32-621-21-995</li>
-                                    <br />
-                                    <li>e-mail: cukiernia@makeawish.pl</li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
+                    @await Component.InvokeAsync("FooterShopInfo")
+
                     <div class="col s12 m6 l3 ">
-                        <h5 style="padding:15px;">O nas</h5>
+                        <h5 style="padding:15px;">About Us</h5>
                         <nav class="grey darken-3" style="box-shadow:none">
                             <div>
                                 <ul>
-                                    <li>@Html.ActionLink("Kim jesteśmy", "WhoWeAre", "Home")</li>
+                                    <li>@Html.ActionLink("Who We Are", "WhoWeAre", "Home")</li>
                                     <br />
-                                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                                     <br />
-                                    <li>@Html.ActionLink("Nasze Sklepy", "OurShops", "Home")</li>
+                                    <li>@Html.ActionLink("Our Shops", "OurShops", "Home")</li>
                                 </ul>
                             </div>
                         </nav>
                     </div>
 
                     <div class="col s12 m6 l3 ">
-                        <h5 style="padding:15px;">Polityki</h5>
+                        <h5 style="padding:15px;">Policies</h5>
                         <nav class="grey darken-3" style="box-shadow:none">
                             <div>
                                 <ul>

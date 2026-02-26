@@ -1,13 +1,13 @@
 ﻿@model PortalWWW.Models.QuoteRequestViewModel
 
 @{
-    ViewData["Title"] = "Fully Personalized Cake";
+    ViewData["Title"] = Model.Header;
 }
 
 <div class="parallax-container hero">
-
     <div class="parallax">
-        <img src="~/img/2150734934.jpg" />
+        <img src="@Url.Content(Model.HeroImagePath ?? "~/img/default-hero.jpg")"
+             alt="@Model.HeroImageAlt" />
     </div>
 </div>
 
@@ -22,8 +22,8 @@
         @Html.AntiForgeryToken()
 
         <!-- CUSTOMER DETAILS -->
-        <div class="card-panel grey darken-3 dark-form">
-            <h5 class="amber-text text-lighten-4">Customer details</h5>
+        <div class="card-panel amber lighten-5">
+            <h5 class="blue-grey-text text-darken-4">Customer details</h5>
 
             <div class="section row">
                 <div class="input-field col s12">
@@ -46,7 +46,7 @@
         </div>
 
         <!-- COLLECTION -->
-        <div class="card-panel amber lighten-3">
+        <div class="card-panel amber lighten-5">
             <h5 class="blue-grey-text text-darken-4">Collection details</h5>
 
             <div class="section row">
@@ -71,9 +71,9 @@
         </div>
 
         <!-- DESCRIPTION -->
-        <div class="card-panel grey darken-3 dark-form">
+        <div class="card-panel amber lighten-5">
 
-            <h5 class="amber-text text-lighten-4">Cake description</h5>
+            <h5 class="blue-grey-text text-darken-4">Cake description</h5>
 
             <div class="section row">
                 <div class="input-field col s12">
@@ -95,7 +95,7 @@
         </div>
 
         <!-- CONSENTS -->
-        <div class="card-panel amber lighten-3">
+        <div class="card-panel amber lighten-5">
             <p>
                 <label>
                     <input type="checkbox" asp-for="AcceptRodo" />

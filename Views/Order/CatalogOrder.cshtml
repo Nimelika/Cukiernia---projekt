@@ -1,26 +1,32 @@
 ﻿@model PortalWWW.Models.CatalogOrderViewModel
 
 @{
-    ViewData["Title"] = "Order a Cake from Catalog";
-  //  HtmlHelperOptions.ClientValidationEnabled = false;
+    ViewData["Title"] = Model.Header;
 }
 
 <div class="parallax-container hero">
-
     <div class="parallax">
-        <img src="~/img/2151955838_2.jpg" />
+        <img src="@Url.Content(Model.HeroImagePath ?? "~/img/default-hero.jpg")"
+             alt="@Model.HeroImageAlt" />
     </div>
 </div>
 
 <h1 class="center blue-grey-text text-darken-4">@ViewData["Title"]</h1>
+<div class="section center">
+    <a asp-action="CakeCatalog"
+       asp-controller="Home"
+       class="btn-large blue-grey darken-3">
+        See Cake Catalog
+    </a>
+    </div>
 
 <div class="container">
     <form asp-action="CreateCatalog" asp-controller="Order" method="post">
         @Html.AntiForgeryToken()
 
         <!-- CUSTOMER DETAILS -->
-        <div class="card-panel grey darken-3 dark-form">
-            <h5 class="amber-text text-lighten-4">Customer details</h5>
+        <div class="card-panel amber lighten-5">
+            <h5 class="blue-grey-text text-darken-4">Customer details</h5>
 
             <div class="section row">
                 <div class="input-field col s12">
@@ -44,7 +50,7 @@
         </div>
 
         <!-- COLLECTION -->
-        <div class="card-panel amber lighten-3">
+        <div class="card-panel amber lighten-5">
             <h5 class="blue-grey-text text-darken-4">Collection details</h5>
 
             <div class="section row">
@@ -68,8 +74,8 @@
         </div>
 
         <!-- CAKE -->
-        <div class="card-panel grey darken-3 dark-form">
-            <h5 class="amber-text text-lighten-4">Cake selection</h5>
+        <div class="card-panel amber lighten-5">
+            <h5 class="blue-grey-text text-darken-4">Cake selection</h5>
 
             <div class="section row">
                 <div class="input-field col s12 m6">
@@ -93,7 +99,7 @@
         </div>
 
         <!-- PERSONALIZATION (OPTIONAL) -->
-        <div class="card-panel amber lighten-3">
+        <div class="card-panel amber lighten-5">
             <h5 class="blue-grey-text text-darken-4">Personalization</h5>
 
             <div class="section row">
@@ -112,7 +118,7 @@
         </div>
 
         <!-- CONSENTS -->
-        <div class="card-panel grey darken-3 dark-form">
+        <div class="card-panel amber lighten-5">
             <div class="section">
 
                 <p>

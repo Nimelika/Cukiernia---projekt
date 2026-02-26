@@ -1,0 +1,157 @@
+/* =========================
+   CAKE CATALOG – EQUAL CARDS
+   ========================= */
+
+/* Flex only for cake catalog row */
+.cake-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .cake-row > .col {
+        display: flex;
+    }
+
+/* Card layout */
+.cake-card {
+    flex: 1;
+    height: 760px;
+    display: flex;
+    flex-direction: column;
+}
+
+    /* Image area */
+    .cake-card .card-image {
+        height: 260px;
+        overflow: hidden;
+    }
+
+        .cake-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    /* Content layout */
+    .cake-card .card-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+/* Description clamp */
+.cake-description {
+    max-height: 120px;
+    overflow: hidden;
+}
+
+/* Prices spacing */
+.cake-prices {
+    margin-top: 10px;
+}
+
+/* Tags spacing */
+.cake-tags {
+    margin-top: 10px;
+}
+
+/* Order button always at bottom */
+.cake-order-btn {
+    margin-top: auto;
+}
+/* =========================
+   CAKE CATALOG – CONTAINERS
+   ========================= */
+
+.cake-item {
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.cake-image {
+    max-height: 320px;
+    object-fit: cover;
+}
+
+.cake-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.cake-description {
+    text-align: justify;
+}
+
+.cake-tags {
+    margin-top: 10px;
+}
+
+.cake-order-btn {
+    margin-top: 20px;
+    align-self: flex-start;
+}
+
+/* BESTSELLERS – force equal image height */
+.card.large .card-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+    .card.large .card-image img {
+        height: 220px;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+/* =========================
+   OFFER – CARD LAYOUT
+   ========================= */
+
+.offer-card {
+    height: 100%;
+}
+
+    .offer-card .card-image {
+        height: 220px;
+        overflow: hidden;
+    }
+
+        .offer-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+.offer-products {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+    .offer-products li {
+        margin-bottom: 6px;
+    }
+/* =========================
+   OFFER – CARD REVEAL
+   ========================= */
+
+.offer-card .card-image {
+    height: 240px;
+    overflow: hidden;
+}
+
+    .offer-card .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.offer-products {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+    .offer-products li {
+        margin-bottom: 6px;
+    }
+

@@ -1,0 +1,28 @@
+﻿@model MakeAWishDB.Entities.Shop
+
+<div class="col s12 m6 l3">
+    <h5 style="padding:15px">Head Office</h5>
+
+    <nav class="grey darken-3" style="box-shadow:none">
+        <div>
+            <ul>
+                @if (Model != null)
+                {
+                    <li>
+                        @Model.StreetAddress<br />
+                        @Model.PostalCode @Model.City<br />
+                        
+                    </li>
+                   
+                    <li>
+                        tel. @Model.PhoneNumber
+                    </li>
+                    <br />
+                    <li>
+                        e-mail: @Model.Mail
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+</div>

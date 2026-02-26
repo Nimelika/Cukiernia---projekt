@@ -6,7 +6,8 @@
 }
 <div class="parallax-container hero">
     <div class="parallax">
-        <img src="/img/296114_2.jpg" />
+        <img src="@Url.Content(Model.HeroImagePath ?? "~/img/default-hero.jpg")"
+             alt="@Model.HeroImageAlt" />
     </div>
 </div>
 
