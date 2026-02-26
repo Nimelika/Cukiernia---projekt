@@ -22,6 +22,9 @@ public partial class ProductCategory
 
     public bool? IsActive { get; set; }
 
+    public string? ImagePath { get; set; }
+
+
     [InverseProperty("ProductCategoryNavigation")]
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

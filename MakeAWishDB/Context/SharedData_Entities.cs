@@ -92,12 +92,28 @@ public partial class SharedData_Entities : DbContext
 
     public virtual DbSet<ViewNewQuoteRequest> ViewNewQuoteRequests { get; set; }
 
+    public DbSet<PageHeroImage> PageHeroImages { get; set; }
+
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=LAPTOP-HI49CHNN\\SQLNOWY;TrustServerCertificate=True;Integrated Security=True;Database=MakeAWishDBProd");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<PageHeroImage>(entity =>
+        {
+            entity.ToTable("PageHeroImages");
+            entity.HasKey(e => e.PageHeroImageId);
+
+            entity.Property(e => e.ImagePath).IsRequired().HasMaxLength(500);
+            entity.Property(e => e.ImageAlt).HasMaxLength(200);
+
+            entity.HasOne(e => e.PageHeader)
+                  .WithMany()
+                  .HasForeignKey(e => e.PageHeaderId);
+        });
+
         modelBuilder.Entity<CakeAllergen>(entity =>
         {
             entity.HasKey(e => e.CakeAllergenId).HasName("PK__CakeAlle__76ADC3D9FC6080B0");
