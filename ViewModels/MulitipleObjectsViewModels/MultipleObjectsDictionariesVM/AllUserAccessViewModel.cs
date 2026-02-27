@@ -1,15 +1,13 @@
 ﻿using BusinessLogic.Models.EntitiesForView;
 using DesktopApp.ViewModels.AbstractViewModels;
+using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.UserAccountVM;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
-using MakeAWishDB.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesktopApp.ViewModels.MulitipleObjectsViewModels.MultipleObjectsDictionariesVM
 {
@@ -20,11 +18,20 @@ namespace DesktopApp.ViewModels.MulitipleObjectsViewModels.MultipleObjectsDictio
         {
             DetailsCommand = new RelayCommand<UserAccessForView>(ShowDetails);
             UpdateCommand = new RelayCommand<UserAccessForView>(ShowUpdate);
+            DeleteCommand = new RelayCommand<UserAccessForView>(ShowDelete);
+
             Load();
         }
 
+        #region Commands
+
         public RelayCommand<UserAccessForView> DetailsCommand { get; }
         public RelayCommand<UserAccessForView> UpdateCommand { get; }
+        public RelayCommand<UserAccessForView> DeleteCommand { get; }
+
+        #endregion
+
+        #region Selected item
 
         private UserAccessForView _selectedUser;
         public UserAccessForView SelectedUser
@@ -40,6 +47,10 @@ namespace DesktopApp.ViewModels.MulitipleObjectsViewModels.MultipleObjectsDictio
             }
         }
 
+        #endregion
+
+        #region Load
+
         public override void Load()
         {
             List = new ObservableCollection<UserAccessForView>(
@@ -47,7 +58,7 @@ namespace DesktopApp.ViewModels.MulitipleObjectsViewModels.MultipleObjectsDictio
                     .Where(u => u.IsActive)
                     .Include(u => u.UserRoleNavigation)
                     .Include(u => u.UserRoleNavigation.ModuleAccesses)
-                    .ThenInclude(ma => ma.Module)
+                        .ThenInclude(ma => ma.Module)
                     .AsEnumerable()
                     .Select((u, index) => new UserAccessForView
                     {
@@ -64,27 +75,49 @@ namespace DesktopApp.ViewModels.MulitipleObjectsViewModels.MultipleObjectsDictio
             );
         }
 
+        #endregion
+
+        #region Command handlers
+
         private void ShowDetails(UserAccessForView user)
         {
-         //   if (user == null) return;
+            if (user == null) return;
 
-          //  var vm = new DisplayUserAccessViewModel();
-          //  vm.Load(user.UserId);
-            //Messenger.Default.Send(vm, "UserAccessDisplay");
+            var vm = new DisplayUserAccountViewModel();
+            vm.Load(user.UserId);
+
+            Messenger.Default.Send(vm, "UserAccessDisplay");
         }
 
         private void ShowUpdate(UserAccessForView user)
         {
-           // if (user == null) return;
+            if (user == null) return;
 
-           // var vm = new UpdateUserAccessViewModel();
-           // vm.Load(user.UserId);
-            //Messenger.Default.Send(vm, "UserAccessUpdate");
+            var vm = new UpdateUserAccountViewModel();
+            vm.Load(user.UserId);
+
+            Messenger.Default.Send(vm, "UserAccessUpdate");
         }
-        public override List<string> getComboboxSortList()
+
+        private void ShowDelete(UserAccessForView user)
         {
-            return new List<string> { "Email", "Name", "Role" };
+            if (user == null) return;
+
+            var entity = SharedData_Entities.UserAccounts
+                .First(u => u.UserId == user.UserId);
+
+            var vm = new DeleteUserAccountViewModel();
+            vm.item = entity;
+
+            Messenger.Default.Send(vm, "UserAccessDelete");
         }
+
+        #endregion
+
+        #region Sorting / Finding
+
+        public override List<string> getComboboxSortList()
+            => new() { "Email", "Name", "Role" };
 
         public override void Sort()
         {
@@ -99,9 +132,7 @@ namespace DesktopApp.ViewModels.MulitipleObjectsViewModels.MultipleObjectsDictio
         }
 
         public override List<string> getComboboxFindList()
-        {
-            return new List<string> { "Email", "Name", "Role" };
-        }
+            => new() { "Email", "Name", "Role" };
 
         public override void Find()
         {
@@ -123,7 +154,8 @@ namespace DesktopApp.ViewModels.MulitipleObjectsViewModels.MultipleObjectsDictio
                                     u.RoleName.StartsWith(FindTextBox, StringComparison.CurrentCultureIgnoreCase)));
         }
 
+        #endregion
     }
-
 }
+
 

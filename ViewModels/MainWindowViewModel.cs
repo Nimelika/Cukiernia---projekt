@@ -2,6 +2,7 @@ using DesktopApp.Helpers;
 using DesktopApp.Services;
 using DesktopApp.ViewModels.AccessAdminViewModels.AuthorizationViewModels;
 using DesktopApp.ViewModels.AccessAdminViewModels.ModulesViewModels;
+using DesktopApp.ViewModels.AccessAdminViewModels.RoleAccessViewModels;
 using DesktopApp.ViewModels.MulitipleObjectsViewModels;
 using DesktopApp.ViewModels.MulitipleObjectsViewModels.MultipleObjectsDictionariesVM;
 using DesktopApp.ViewModels.SingleObjectViewModels;
@@ -17,6 +18,7 @@ using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.Pr
 using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.QuoteRequestVM;
 using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.RegionVM;
 using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.TeamMemberVM;
+using DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.UserAccountVM;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -52,6 +54,7 @@ namespace DesktopApp.ViewModels
                     // odœwie¿enie komend po loginie
                     CommandManager.InvalidateRequerySuggested(); } });
                 Messenger.Default.Register<DeleteRegionViewModel>(this, "RegionDelete", OnRegionDeleteMessageReceived);
+                Messenger.Default.Register<DeleteUserAccountViewModel>(this, "UserAccessDelete", OnUserAccountDeleteMessageReceived);
                 Messenger.Default.Register<DeleteCelebrationCakeViewModel>(this, "CelebrationCakeDelete", OnCelebrationCakeDeleteMessageReceived);
             Messenger.Default.Register<DeleteProductCategoryViewModel>(this, "ProductCategoryDelete", OnProductCategoryDeleteMessageReceived);
             Messenger.Default.Register<DeleteQuoteRequestViewModel>(this, "QuoteRequestDelete", OnQuoteRequestDeleteMessageReceived);
@@ -59,6 +62,7 @@ namespace DesktopApp.ViewModels
             Messenger.Default.Register<DeleteMainPageArticleViewModel>(this, "MainPageArticleDelete", OnMainPageArticleDeleteMessageReceived);
             Messenger.Default.Register<DeleteTeamMemberViewModel>(this, "TeamMemberDelete", OnTeamMemberDeleteMessageReceived);
             Messenger.Default.Register<UpdateRegionViewModel>(this, "RegionUpdate", OnRegionUpdateMessageReceived);
+            Messenger.Default.Register<UpdateUserAccountViewModel>(this, "UserAccessUpdate", OnUserAccountUpdateMessageReceived);
             Messenger.Default.Register<UpdateCelebrationCakeViewModel>(this, "CelebrationCakeUpdate", OnCelebrationCakeUpdateMessageReceived);
             Messenger.Default.Register<UpdateProductCategoryViewModel>(this, "ProductCategoryUpdate", OnProductCategoryUpdateMessageReceived);
             Messenger.Default.Register<UpdateOrderViewModel>(this, "OrderUpdate", OnOrderUpdateMessageReceived);
@@ -66,6 +70,7 @@ namespace DesktopApp.ViewModels
             Messenger.Default.Register<UpdateTeamMemberViewModel>(this, "TeamMemberUpdate", OnTeamMemberUpdateMessageReceived);
             Messenger.Default.Register<UpdateQuoteRequestViewModel>(this, "QuoteRequestUpdate", OnQuoteRequestUpdateMessageReceived);
             Messenger.Default.Register<DisplayRegionViewModel>(this, "RegionDisplay", OnRegionDisplayMessageReceived);
+            Messenger.Default.Register<DisplayUserAccountViewModel>(this, "UserAccessDisplay", OnUserAccountDisplayMessageReceived);
             Messenger.Default.Register<DisplayCelebrationCakeViewModel>(this, "CelebrationCakeDisplay", OnCelebrationCakeDisplayMessageReceived);
             Messenger.Default.Register<DisplayProductCategoryViewModel>(this, "ProductCategoryDisplay", OnProductCategoryDisplayMessageReceived);
             Messenger.Default.Register<DisplayQuoteRequestViewModel>(this, "QuoteRequestDisplay", OnQuoteRequestDisplayMessageReceived);
@@ -79,6 +84,7 @@ namespace DesktopApp.ViewModels
             Messenger.Default.Register<string>(this, msg => { if (msg == "Add Team Member") { CreateTeamMemberCommand.Execute(null); } });
             Messenger.Default.Register<string>(this, msg => { if (msg == "Add Product Categories") { CreateProductCategoryCommand.Execute(null); } });
             Messenger.Default.Register<string>(this, msg => { if (msg == "Add Orders") { CreateOrderCommand.Execute(null); } });
+            Messenger.Default.Register<string>(this, msg => { if (msg == "Add User Access") { CreateUserAccountCommand.Execute(null); } });
             Messenger.Default.Register<string>(this, msg =>
             {
                 if (msg == "LoginSuccess")
@@ -90,6 +96,10 @@ namespace DesktopApp.ViewModels
                 }
 
             });
+            Messenger.Default.Register<ManageRoleModulesViewModel>(
+    this, "ManageRoleModules",
+    vm => createView(vm));
+
 
         }
         private readonly CurrentUserService _currentUser;
@@ -176,13 +186,23 @@ namespace DesktopApp.ViewModels
         public ICommand AllMainPageArticlesCommand =>
     new BaseCommand(
         showAllMainPageArticles,
-        () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+        () => _currentUser.AllowedModuleCodes.Contains("WEBPAGE")
     );
         public ICommand AllUserAccessesCommand =>
     new BaseCommand(
         showAllUserAccesses,
         () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
     );
+        public ICommand CreateUserAccountCommand =>
+new BaseCommand(
+   () => createView(new CreateUserAccountViewModel()),
+   () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+);
+        public ICommand ManageRoleModulesCommand =>
+  new BaseCommand(
+     () => createView(new ManageRoleModulesViewModel()),
+     () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+  );
 
         public ICommand CreateRegionCommand =>
             new BaseCommand(
@@ -194,17 +214,17 @@ namespace DesktopApp.ViewModels
         public ICommand CreateTeamMemberCommand =>
             new BaseCommand(
                 () => createView(new CreateTeamMemberViewModel()),
-                () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+                () => _currentUser.AllowedModuleCodes.Contains("WEBPAGE")
             );
         public ICommand CreateMainPageArticleCommand =>
             new BaseCommand(
                 () => createView(new CreateMainPageArticleViewModel()),
-                () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+                () => _currentUser.AllowedModuleCodes.Contains("WEBPAGE")
             );
         public ICommand CreatePageHeroImageCommand =>
             new BaseCommand(
                 () => createView(new CreatePageHeroImageViewModel()),
-                () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+                () => _currentUser.AllowedModuleCodes.Contains("WEBPAGE")
             );
 
         public ICommand AllCountriesCommand =>
@@ -233,7 +253,7 @@ namespace DesktopApp.ViewModels
         public ICommand AllTeamMembersCommand =>
             new BaseCommand(
                 showAllTeamMembers,
-                () => _currentUser.AllowedModuleCodes.Contains("ADMIN")
+                () => _currentUser.AllowedModuleCodes.Contains("WEBPAGE")
             );
 
 
@@ -628,6 +648,11 @@ namespace DesktopApp.ViewModels
             if (deleteVm == null) return;
             createView(deleteVm);
         }
+        private void OnUserAccountDeleteMessageReceived(DeleteUserAccountViewModel deleteVm)
+        {
+            if (deleteVm == null) return;
+            createView(deleteVm);
+        }
         private void OnCelebrationCakeDeleteMessageReceived(DeleteCelebrationCakeViewModel deleteVm)
         {
             if (deleteVm == null) return;
@@ -680,6 +705,11 @@ namespace DesktopApp.ViewModels
             if (updateVM == null) return;
             createView(updateVM);
         }
+        private void OnUserAccountUpdateMessageReceived(UpdateUserAccountViewModel updateVM)
+        {
+            if (updateVM == null) return;
+            createView(updateVM);
+        }
         private void OnOrderUpdateMessageReceived(UpdateOrderViewModel updateVM)
         {
             if (updateVM == null) return;
@@ -726,6 +756,11 @@ namespace DesktopApp.ViewModels
             createView(displayVM);
         }
         private void OnOrderDisplayMessageReceived(DisplayOrderViewModel displayVM)
+        {
+            if (displayVM == null) return;
+            createView(displayVM);
+        }
+        private void OnUserAccountDisplayMessageReceived(DisplayUserAccountViewModel displayVM)
         {
             if (displayVM == null) return;
             createView(displayVM);
