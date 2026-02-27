@@ -17,6 +17,9 @@
     <Compile Update="Views\AccessAdminViews\ModulesViews\SettingsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\AccessAdminViews\RoleAccessViews\ManageRoleModulesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\MultipleObjectsViews\MultipleObjectsDictionaries\AllCelebrationCakesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -150,6 +153,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\TeamMember\UpdateTeamMemberView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\UserAccount\CreateUserAccountView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\UserAccount\DeleteUserAccountView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\UserAccount\DisplayUserAccountView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SingleObjectViews\SingleObjectDictionaries\UserAccount\UpdateUserAccountView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

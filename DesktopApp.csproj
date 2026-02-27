@@ -13,11 +13,6 @@
     <Page Remove="Views\SingleObjectViews\SingleObjectDictionaries\NewFolder1\**" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Icons\icons8-add-new-50.png" />
-    <None Remove="Icons\icons8-edit-50.png" />
-    <None Remove="Icons\icons8-refresh-50.png" />
-    <None Remove="Icons\icons8-remove-50.png" />
-    <None Remove="Icons\icons8-save-close-50.png" />
     <None Remove="Templates\InvoiceTemplate.docx" />
   </ItemGroup>
   <ItemGroup>
@@ -26,96 +21,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\" />
     <Folder Include="ViewModels\Reports\" />
     <Folder Include="Views\Reports\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\icons8-add-new-50.png" />
-    <Resource Include="Icons\icons8-edit-50.png" />
-    <Resource Include="Icons\icons8-refresh-50.png" />
-    <Resource Include="Icons\icons8-remove-50.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Icons\icons8-save-close-50.png" />
-    <Resource Include="Icons\ic_work_36pt.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\login_black_36dp.png" />
-    <Resource Include="Icons\logout_black_36dp.png" />
-    <Resource Include="Icons\switch_account_black_36dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\login_black_48dp.png" />
-    <Resource Include="Icons\logout_black_48dp.png" />
-    <Resource Include="Icons\switch_account_black_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\outline_view_module_black_36dp.png" />
-    <Resource Include="Icons\outline_view_module_black_48dp.png" />
-    <Resource Include="Icons\round_account_balance_black_36dp.png" />
-    <Resource Include="Icons\round_account_balance_black_48dp.png" />
-    <Resource Include="Icons\round_cases_black_36dp.png" />
-    <Resource Include="Icons\round_cases_black_48dp.png" />
-    <Resource Include="Icons\round_forum_black_36dp.png" />
-    <Resource Include="Icons\round_grade_black_36dp.png" />
-    <Resource Include="Icons\round_grade_black_48dp.png" />
-    <Resource Include="Icons\round_help_outline_black_36dp.png" />
-    <Resource Include="Icons\round_help_outline_black_48dp.png" />
-    <Resource Include="Icons\round_home_black_36dp.png" />
-    <Resource Include="Icons\round_home_black_48dp.png" />
-    <Resource Include="Icons\round_live_tv_black_36dp.png" />
-    <Resource Include="Icons\round_maps_home_work_black_36dp.png" />
-    <Resource Include="Icons\round_maps_home_work_black_48dp.png" />
-    <Resource Include="Icons\round_people_black_36dp.png" />
-    <Resource Include="Icons\round_people_black_48dp.png" />
-    <Resource Include="Icons\round_person_black_36dp.png" />
-    <Resource Include="Icons\round_person_black_48dp.png" />
-    <Resource Include="Icons\round_settings_suggest_black_36dp.png" />
-    <Resource Include="Icons\round_settings_suggest_black_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\outline_info_black_36dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\outline_badge_black_36dp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\icons8-html-filetype-64.png" />
-    <Resource Include="Icons\icons8-pdf-64.png" />
-    <Resource Include="Icons\icons8-xls-64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\outline_speed_black_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\icons8-blocked-64.png" />
-    <Resource Include="Icons\icons8-cancel-30.png" />
-    <Resource Include="Icons\icons8-check-circle-30.png" />
-    <Resource Include="Icons\icons8-credit-64.png" />
-    <Resource Include="Icons\icons8-hierarchy-50.png" />
-    <Resource Include="Icons\icons8-merchant-account-32.png" />
-    <Resource Include="Icons\icons8-redo-64.png" />
-    <Resource Include="Icons\icons8-sorting-64.png" />
-    <Resource Include="Icons\icons8-undo-64.png" />
-    <Resource Include="Icons\icons8-vat-64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\icons8-coverage-64.png" />
-    <Resource Include="Icons\icons8-tax-68.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\icons8-add-property-50.png" />
-    <Resource Include="Icons\icons8-brochure-50.png" />
-    <Resource Include="Icons\icons8-divide-50.png" />
-    <Resource Include="Icons\icons8-funnel-50.png" />
-    <Resource Include="Icons\icons8-layout-64.png" />
-    <Resource Include="Icons\icons8-search-50.png" />
-    <Resource Include="Icons\icons8-txt-64.png" />
-    <Resource Include="Icons\icons8-web-design-64.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
@@ -170,9 +80,6 @@
     <ProjectReference Include="..\MakeAWishDB\MakeAWishDB.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Assets\img_home.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
