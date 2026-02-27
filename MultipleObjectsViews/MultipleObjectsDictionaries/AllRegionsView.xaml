@@ -34,26 +34,26 @@
                 ItemsSource="{Binding List}"
                 SelectedItem="{Binding SelectedRegion, Mode=TwoWay}">
 
-             
+
 
                 <DataGrid.Columns>
-  
+
                     <DataGridTextColumn
-                        ElementStyle="{StaticResource StandardTextColumnStyle}"
                         Width="SizeToHeader"
                         Binding="{Binding Position}"
+                        ElementStyle="{StaticResource StandardTextColumnStyle}"
                         Header="Position" />
 
                     <DataGridTextColumn
-                        ElementStyle="{StaticResource StandardTextColumnStyle}"
                         Width="Auto"
                         Binding="{Binding RegionName}"
+                        ElementStyle="{StaticResource StandardTextColumnStyle}"
                         Header="Abbreviation" />
 
                     <DataGridTextColumn
-                        ElementStyle="{StaticResource StandardTextColumnStyle}"
                         Width="Auto"
                         Binding="{Binding CountryName}"
+                        ElementStyle="{StaticResource StandardTextColumnStyle}"
                         Header="Country Name" />
 
                     <!--  Action buttons column  -->
@@ -62,20 +62,20 @@
                             <DataTemplate>
                                 <StackPanel Style="{StaticResource ActionsStackPanelStyle}">
                                     <Button
-                                        Style="{StaticResource ActionsStackPanelButtonStyle}"
                                         Command="{Binding DataContext.DetailsCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         CommandParameter="{Binding}"
-                                        Content="Details" />
+                                        Content="Details"
+                                        Style="{StaticResource ActionsStackPanelButtonStyle}" />
                                     <Button
-                                        Style="{StaticResource ActionsStackPanelButtonStyle}"
                                         Command="{Binding DataContext.UpdateCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         CommandParameter="{Binding}"
-                                        Content="Update" />
+                                        Content="Update"
+                                        Style="{StaticResource ActionsStackPanelButtonStyle}" />
                                     <Button
-                                        Style="{StaticResource ActionsStackPanelButtonStyle}"
                                         Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         CommandParameter="{Binding}"
-                                        Content="Delete" />
+                                        Content="Delete"
+                                        Style="{StaticResource ActionsStackPanelButtonStyle}" />
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

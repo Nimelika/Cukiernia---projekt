@@ -58,14 +58,13 @@
                                 <Button
                                     Command="{Binding DataContext.DetailsCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                     CommandParameter="{Binding}"
-                                    Style="{StaticResource ActionsStackPanelButtonStyle}" 
-                                    Content="Details" />
-
-                                <Button                                    
+                                    Content="Details"
+                                    Style="{StaticResource ActionsStackPanelButtonStyle}" />
+                                <Button
                                     Command="{Binding DataContext.UpdateCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                     CommandParameter="{Binding}"
-                                    Style="{StaticResource ActionsStackPanelButtonStyle}" 
-                                    Content="Update" />
+                                    Content="Update"
+                                    Style="{StaticResource ActionsStackPanelButtonStyle}" />
                                 <Button
                                     Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                     CommandParameter="{Binding}"

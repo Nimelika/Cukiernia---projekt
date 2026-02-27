@@ -3,6 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vCelebrationCake="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.CelebrationCake"
     xmlns:vQuote="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.QuoteRequest"
+    xmlns:vRoleAccessViewModels="clr-namespace:DesktopApp.ViewModels.AccessAdminViewModels.RoleAccessViewModels"
+    xmlns:vRoleAccessViews="clr-namespace:DesktopApp.Views.AccessAdminViews.RoleAccessViews"
     xmlns:viewHeroImage="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.PageHeroImage"
     xmlns:viewMainPageArticle="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.MainPageArticle"
     xmlns:viewTeamMember="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.TeamMember"
@@ -18,6 +20,7 @@
     xmlns:vmOrderItemVM="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.OrderItemVM"
     xmlns:vmOrderVM="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.OrderVM"
     xmlns:vmQuote="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.QuoteRequestVM"
+    xmlns:vmUserAccount="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.UserAccountVM"
     xmlns:vmmd="clr-namespace:DesktopApp.ViewModels.MulitipleObjectsViewModels.MultipleObjectsDictionariesVM"
     xmlns:vmmdpc="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.ProductCategoryVM"
     xmlns:vmmdrr="clr-namespace:DesktopApp.ViewModels.SingleObjectViewModels.SingleObjectDictionariesVM.RegionVM"
@@ -34,9 +37,29 @@
     xmlns:vwsInvoiceItem="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.InvoiceItem"
     xmlns:vwsOrder="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.Order"
     xmlns:vwsOrderItem="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.OrderItem"
+    xmlns:vwsUserAccount="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.UserAccount"
     xmlns:vwsinvoice="clr-namespace:DesktopApp.Views.SingleObjectViews.SingleObjectDictionaries.Invoice">
 
     <!--  laczenie View z ViewModel zakladek  -->
+    <DataTemplate DataType="{x:Type vRoleAccessViewModels:ManageRoleModulesViewModel}">
+        <vRoleAccessViews:ManageRoleModulesView />
+    </DataTemplate>
+
+
+    <DataTemplate DataType="{x:Type vmUserAccount:CreateUserAccountViewModel}">
+        <vwsUserAccount:CreateUserAccountView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmUserAccount:DeleteUserAccountViewModel}">
+        <vwsUserAccount:DeleteUserAccountView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmUserAccount:DisplayUserAccountViewModel}">
+        <vwsUserAccount:DisplayUserAccountView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmUserAccount:UpdateUserAccountViewModel}">
+        <vwsUserAccount:UpdateUserAccountView />
+    </DataTemplate>
+
+
     <DataTemplate DataType="{x:Type viewmodelPageHeroImage:CreatePageHeroImageViewModel}">
         <viewHeroImage:CreatePageHeroImageView />
     </DataTemplate>

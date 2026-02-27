@@ -197,6 +197,15 @@
         </Setter>
     </Style>
 
+    <Style
+        x:Key="StandardPasswordBoxStyle"
+        BasedOn="{StaticResource MaterialDesignPasswordBox}"
+        TargetType="PasswordBox">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+
 
 
 </ResourceDictionary>

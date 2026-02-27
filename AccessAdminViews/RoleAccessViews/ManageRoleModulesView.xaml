@@ -1,0 +1,62 @@
+﻿<local:SingleViewBase x:Class="DesktopApp.Views.AccessAdminViews.RoleAccessViews.ManageRoleModulesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DesktopApp.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="400"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Views/TabStyleResources.xaml" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <!-- ROLE SELECTION -->
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label Content="Role:"
+                   Style="{StaticResource SemiBoldLabelStyle}" />
+            <ComboBox Width="250"
+                      Margin="10,0,0,0"
+                      Style="{StaticResource StandardComboBoxStyle}"
+                      ItemsSource="{Binding Roles}"
+                      DisplayMemberPath="RoleName"
+                      SelectedItem="{Binding SelectedRole, Mode=TwoWay}" />
+        </StackPanel>
+
+        <!-- MODULE ACCESS GRID -->
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding Modules}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  HeadersVisibility="Column"
+                  ColumnHeaderStyle="{StaticResource StandardDataGridHeaderStyle}">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Module"
+                                    Binding="{Binding ModuleName}"
+                                    Width="150"/>
+
+                <DataGridCheckBoxColumn Header="Has Access"
+                                        Binding="{Binding HasAccess, Mode=TwoWay}"
+                                        Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- SAVE BUTTON -->
+        <StackPanel Grid.Row="2"
+                    Style="{StaticResource ActionsStackPanelStyle}">
+            <Button Content="Save"
+                    Command="{Binding SaveCommand}"
+                    Style="{StaticResource StandardStackPanelButtonStyle}" />
+        </StackPanel>
+    </Grid>
+    </local:SingleViewBase>
+

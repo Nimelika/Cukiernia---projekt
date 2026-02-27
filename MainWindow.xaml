@@ -69,7 +69,7 @@
                         Header="Celebration Cakes"
                         Template="{StaticResource Item_Template}" />
                 </MenuItem>
-                
+
 
                 <MenuItem Header="Stock &amp; Orders" Template="{StaticResource Menu_SubMenu_Template}">
                     <MenuItem
@@ -80,7 +80,7 @@
                         Command="{Binding AllOrdersCommand}"
                         Header="Orders"
                         Template="{StaticResource Item_Template}" />
-                    
+
                     <MenuItem
                         Command="{Binding CreateOrderItemCommand}"
                         Header="Create Order Item"
@@ -89,9 +89,9 @@
 
                 <MenuItem Header="Finance" Template="{StaticResource Menu_SubMenu_Template}">
                     <MenuItem
-    Command="{Binding AllInvoicesCommand}"
-    Header="Invoices"
-    Template="{StaticResource Item_Template}" />
+                        Command="{Binding AllInvoicesCommand}"
+                        Header="Invoices"
+                        Template="{StaticResource Item_Template}" />
                     <MenuItem
                         Command="{Binding CreateInvoiceCommand}"
                         Header="Create Invoice"
@@ -108,9 +108,15 @@
                         Header="User Access"
                         Template="{StaticResource Item_Template}" />
                     <MenuItem
+                        Command="{Binding ManageRoleModulesCommand}"
+                        Header="User Roles"
+                        Template="{StaticResource Item_Template}" />
+                    <MenuItem
                         Command="{Binding AllRegionsCommand}"
                         Header="Region"
                         Template="{StaticResource Item_Template}" />
+                </MenuItem>
+                <MenuItem Header="Webpage" Template="{StaticResource Menu_SubMenu_Template}">
                     <MenuItem
                         Command="{Binding AllTeamMembersCommand}"
                         Header="Team Members"
@@ -123,11 +129,10 @@
                         Command="{Binding CreatePageHeroImageCommand}"
                         Header="Hero Image"
                         Template="{StaticResource Item_Template}" />
+
                 </MenuItem>
 
-                <MenuItem Header="Settings" Template="{StaticResource Menu_SubMenu_Template}">
-                    
-                </MenuItem>
+                <MenuItem Header="Settings" Template="{StaticResource Menu_SubMenu_Template}" />
 
                 <MenuItem
                     Command="{Binding LogoutCommand}"
