@@ -12,9 +12,9 @@
         <ResourceDictionary Source="/Views/TabStyleResources.xaml" />
     </UserControl.Resources>
 
-    <Grid Style="{StaticResource MainBackground}">
+    <Grid>
         <Grid>
-            <Grid Style="{StaticResource IvoryBackground}">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>

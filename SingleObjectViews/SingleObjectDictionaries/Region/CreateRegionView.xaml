@@ -24,24 +24,26 @@
                     <ColumnDefinition Width="300" />
 
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="1" Content="Country Name:" Style="{StaticResource SemiBoldLabelStyle}"/>
-                <Label Grid.Column="0" Content="Region Name:" Style="{StaticResource SemiBoldLabelStyle}"/>
+                <Label
+                    Grid.Row="1"
+                    Content="Country Name:"
+                    Style="{StaticResource SemiBoldLabelStyle}" />
+                <Label
+                    Grid.Column="0"
+                    Content="Region Name:"
+                    Style="{StaticResource SemiBoldLabelStyle}" />
                 <TextBox
                     Grid.Column="1"
                     Style="{StaticResource StandardTextBoxStyle}"
-                    Text="{Binding Path=RegionName, 
-                    UpdateSourceTrigger=PropertyChanged, 
-                    Mode=TwoWay, 
-                    ValidatesOnDataErrors=True}" />
+                    Text="{Binding Path=RegionName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                 <ComboBox
-                    
-                    Grid.Column="1"
                     Grid.Row="1"
-                    Style="{StaticResource StandardComboBoxStyle}"
+                    Grid.Column="1"
                     DisplayMemberPath="Value"
                     ItemsSource="{Binding CountryComboBoxItems}"
                     SelectedValue="{Binding Path=Country, Mode=TwoWay}"
-                    SelectedValuePath="Key" />
+                    SelectedValuePath="Key"
+                    Style="{StaticResource StandardComboBoxStyle}" />
             </Grid>
         </Grid>
     </Grid>
