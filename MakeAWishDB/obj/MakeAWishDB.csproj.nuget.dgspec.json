@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ania\\Desktop\\ProjektCukiernia\\MakeAWish_do pokazania\\MakeAWish_do pokazania\\MakeAWishDB\\MakeAWishDB.csproj": {}
+    "C:\\Users\\Ania\\Desktop\\ProjektCukiernia\\MakeAWish_do pokazania v83\\MakeAWish_do pokazania\\MakeAWish_do pokazania\\MakeAWishDB\\MakeAWishDB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ania\\Desktop\\ProjektCukiernia\\MakeAWish_do pokazania\\MakeAWish_do pokazania\\MakeAWishDB\\MakeAWishDB.csproj": {
+    "C:\\Users\\Ania\\Desktop\\ProjektCukiernia\\MakeAWish_do pokazania v83\\MakeAWish_do pokazania\\MakeAWish_do pokazania\\MakeAWishDB\\MakeAWishDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ania\\Desktop\\ProjektCukiernia\\MakeAWish_do pokazania\\MakeAWish_do pokazania\\MakeAWishDB\\MakeAWishDB.csproj",
+        "projectUniqueName": "C:\\Users\\Ania\\Desktop\\ProjektCukiernia\\MakeAWish_do pokazania v83\\MakeAWish_do pokazania\\MakeAWish_do pokazania\\MakeAWishDB\\MakeAWishDB.csproj",
         "projectName": "MakeAWishDB",
-        "projectPath": "C:\\Users\\Ania\\Desktop\\ProjektCukiernia\\MakeAWish_do pokazania\\MakeAWish_do pokazania\\MakeAWishDB\\MakeAWishDB.csproj",
+        "projectPath": "C:\\Users\\Ania\\Desktop\\ProjektCukiernia\\MakeAWish_do pokazania v83\\MakeAWish_do pokazania\\MakeAWish_do pokazania\\MakeAWishDB\\MakeAWishDB.csproj",
         "packagesPath": "C:\\Users\\Ania\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ania\\Desktop\\ProjektCukiernia\\MakeAWish_do pokazania\\MakeAWish_do pokazania\\MakeAWishDB\\obj\\",
+        "outputPath": "C:\\Users\\Ania\\Desktop\\ProjektCukiernia\\MakeAWish_do pokazania v83\\MakeAWish_do pokazania\\MakeAWish_do pokazania\\MakeAWishDB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
